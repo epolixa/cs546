@@ -1,0 +1,13 @@
+#home .content {}
+#home .content .main-airports ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+#home .content .airport-li {
+  width: 400px;
+  margin: 0 10px 20px 10px;
+}
+#home .content .airport-li img {
+  width: 100%;
+}

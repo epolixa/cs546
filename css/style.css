@@ -1,0 +1,88 @@
+/* # GENERAL
+ * #########
+ */
+
+* {
+  position: relative;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  margin: 20px 0 20px 0;
+}
+
+
+
+/* # HEADER
+ * ########
+ */
+
+.header-wrap {
+  margin: 0 20px 40px 20px;
+}
+.header {
+  width: 100%;
+}
+.header .nav-main {
+  background: #5B9DDE;
+  border: 1px solid #000;
+}
+.header .nav-main ul {
+  list-style: none;
+  display: flex;
+}
+.header .nav-main ul li {
+  color: #000;
+  flex: auto;
+  font-size: 24px;
+  text-align: center;
+  display: inline-block;
+  padding: 20px 0 20px 0;
+}
+.header .nav-main ul li a {
+  color: #000;
+  margin: 0 8px 0 8px;
+}
+.header .nav-main .airports ul {
+  display: none;
+  position: absolute;
+}
+.header .nav-main .airports:hover ul {
+  display: block;
+}
+
+
+
+/* # CONTENT
+ * #########
+ */
+
+.content {
+
+}
+
+
+
+/* # FOOTER
+ * ########
+ */
+
+.footer-wrap {
+  margin: 0 40px 0 40px;
+}
+.footer {
+  width: 100%;
+}
+.footer .contact {
+  background: #5B9DDE;
+}
