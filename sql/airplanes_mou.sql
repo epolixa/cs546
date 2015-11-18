@@ -121,7 +121,8 @@ CREATE TABLE IF NOT EXISTS `rentals` (
   `airport id` int(11) NOT NULL,
   `car brand` varchar(20) NOT NULL,
   `price` float(11) NOT NULL,
-  `rank` int(11) NOT NULL
+  `rank` int(11) NOT NULL,
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
