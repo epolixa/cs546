@@ -75,3 +75,21 @@ CREATE TABLE IF NOT EXISTS `shopping` (
 -- 导出表中的数据 `shopping`
 --
 
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `airports`
+--
+
+CREATE TABLE IF NOT EXISTS `airports` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `history` text NOT NULL,
+  `parking` text NOT NULL,
+  `faq` text NOT NULL,
+  `contact` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 导出表中的数据 `airports`
+--
