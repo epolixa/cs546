@@ -93,3 +93,37 @@ CREATE TABLE IF NOT EXISTS `airports` (
 --
 -- 导出表中的数据 `airports`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `terminal`
+--
+
+CREATE TABLE IF NOT EXISTS `terminal` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 导出表中的数据 `terminal`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `rentals`
+--
+
+CREATE TABLE IF NOT EXISTS `rentals` (
+  `id` int(11) NOT NULL,
+  `company id` int(11) NOT NULL,
+  `airport id` int(11) NOT NULL,
+  `car brand` varchar(20) NOT NULL,
+  `price` float(11) NOT NULL,
+  `rank` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 导出表中的数据 `rentals`
+--
