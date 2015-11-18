@@ -22,28 +22,3 @@
   width: 100%;
   margin-top: 36px;
 }
-
-#airport-home .content-right .airport-home {
-  margin-bottom: 20px;
-}
-#airport-home .content-right .airport-home h2 {
-  font-size: 32px;
-}
-#airport-home .content-right .airport-home img {
-  width: 100%;
-}
-#airport-home .content-right .airport-links ul {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-#airport-home .content-right .airport-links ul li {
-  background: #5B9DDE;
-  border: 1px solid #000;
-  color: #fff;
-  padding: 8px 20px;
-  margin: 0 10px 20px 10px;
-}
-#airport-home .content-right .airport-links ul li a {
-  display: block;
-}
