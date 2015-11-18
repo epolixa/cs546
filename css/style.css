@@ -18,9 +18,7 @@ a:hover {
   cursor: pointer;
 }
 
-.container {
-  margin: 20px 0 20px 0;
-}
+.container {}
 
 
 
@@ -29,7 +27,7 @@ a:hover {
  */
 
 .header-wrap {
-  margin: 0 20px 40px 20px;
+  margin: 20px 20px 40px 20px;
 }
 .header {
   width: 100%;
@@ -78,10 +76,36 @@ a:hover {
  */
 
 .content-wrap {
-  margin: 0 0 40px 0;
+  margin: 0 20px 40px 20px;
 }
 .content {
-
+  width: 100%;
+  display: block;
+}
+.content-left {
+  width: 20%;
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 20px;
+}
+.content-left .nav-secondary {
+  background: #5B9DDE;
+  border: 1px solid #000;
+  color: #fff;
+  padding: 10px;
+  line-height: 24px;
+}
+.content-left .nav-secondary h3 {
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.content-right {
+  width: calc(80% - 25px);
+  display: inline-block;
+  vertical-align: top;
 }
 
 
@@ -91,7 +115,7 @@ a:hover {
  */
 
 .footer-wrap {
-  margin: 0 40px 0 40px;
+  margin: 0 20px 0 20px;
 }
 .footer {
   width: 100%;
