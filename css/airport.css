@@ -19,6 +19,7 @@
   padding: 8px 20px;
   margin: 0 10px 20px 10px;
 }
-#airport-home .content-right .airport-links ul li a {
+#airport .content-right .airport-links ul li a {
   display: block;
+  color: #fff;
 }

@@ -102,6 +102,9 @@ a:hover {
   padding-bottom: 8px;
   margin-bottom: 8px;
 }
+.content-left .nav-secondary a {
+  color: #fff;
+}
 .content-right {
   width: calc(80% - 25px);
   display: inline-block;
