@@ -10,7 +10,6 @@ if (! $error) {
     <head>
         <meta charset="UTF-8">
         <title>Secure Login: Error</title>
-        <link rel="stylesheet" href="styles/main.css" />
     </head>
     <body>
         <h1>There was a problem</h1>
