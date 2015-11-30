@@ -1,21 +1,17 @@
 <?php
-  include "header.php"
+include_once "header.php";
+require_once'../includes/Airport.php';
 ?>
+<div class="content-right">
+    <section class="airport-home">
+        <h2>Parking for <?php echo $airport->name() ?> International Airport</h2>
+        <p>
+            <?php
+            echo $airport->parking();
+            ?>
+        </p>
+    </section>
 
-          <div class="content-right">
-            <section class="airport-home">
-              <h2>History of <?php echo $airport ?> International Airport</h2>
-              <p>
-                <?php
-                    include_once "Database_Connection.php";
-                    $sql = "select parking from airports where name = '$airport'";
-                    $result = mysql_query($sql);
-                    $row = mysql_fetch_array($result);
-                    echo $row['parking'];
-                ?>
-              </p>
-            </section>
-
-<?php
-  include "footer.php"
-?>
+    <?php
+    include "footer.php"
+    ?>

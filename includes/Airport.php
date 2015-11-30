@@ -81,8 +81,7 @@ class Airport
         return false;
     }
 
-
-        private function getAirport($id){
+    private function getAirport($id){
        $id = filter_var($id,FILTER_SANITIZE_NUMBER_INT);
        $stmt = $this->db->send_sql("SELECT * FROM airports WHERE id='$id'");
        if($stmt->num_rows>0){
@@ -115,7 +114,7 @@ class Airport
         return $this->history;
     }
 
-    public function parkingInfo(){
+    public function parking(){
         return $this->parking;
     }
 
@@ -123,7 +122,7 @@ class Airport
         return $this->faq;
     }
 
-    public function contactInfo(){
+    public function contact(){
         return $this->contact;
     }
 

@@ -1,5 +1,8 @@
 <?php
-  $airport = $_GET['airport'];
+require_once('../includes/Common.php');
+require_once('../includes/Airport.php');
+  $airportID = filter_input(INPUT_GET,'airport',FILTER_SANITIZE_NUMBER_INT);
+  $airport = new Airport($airportID);
  ?>
 <!DOCTYPE html>
 <html>
@@ -21,14 +24,7 @@
               <li><a href="../home.html">Home</a></li>
               <li><a href="../about.html">About</a></li>
               <li class="airports">
-                <span>Airports</span>
-                <ul>
-                  <li><a href="airport.php?airport=JFK">JFK International Airport</a></li>
-                  <li><a href="airport.php?airport=SanFrancisco">San Francisco International Airport</a></li>
-                  <li><a href="airport.php?airport=Miami">Miami Airport</a></li>
-                  <li><a href="airport.php?airport=HGB">Houston George Bush International Airport</a></li>
-                  <li><a href="airport.php?airport=Honolulu">Honolulu International Airport</a></li>
-                </ul>
+                  <?php Common::airport_nav_dropdown(); ?>
               </li>
               <li><a href="LoginAndRegister/register.php">Register</a>|<a href="LoginAndRegister/register.php">Login</a></li>
             </ul>
@@ -40,17 +36,17 @@
           <div class="content-left">
             <nav class="nav-secondary">
               <ul>
-                <li><h3><?php echo $airport ?> International Airport</h3></li>
-                <li><a href="airport.php?airport=<?php echo $airport ?>">Home</a></li>
-                <li><a href="history.php?airport=<?php echo $airport ?>">History</a></li>
-                <li><a href="flights.php?airport=<?php echo $airport ?>">Flights</a></li>
-                <li><a href="shopping.php?airport=<?php echo $airport ?>">Shopping & Food</a></li>
-                <li><a href="rentals.php?airport=<?php echo $airport ?>">Car Rentals</a></li>
-                <li><a href="parking.php?airport=<?php echo $airport ?>">Parking</a></li>
-                <li><a href="airlines.php?airport=<?php echo $airport ?>">Airlines</a></li>
-                <li><a href="reviews.php?airport=<?php echo $airport ?>">Reviews</a></li>
-                <li><a href="faq.php?airport=<?php echo $airport ?>">FAQ</a></li>
-                <li><a href="contact.php?airport=<?php echo $airport ?>">Contact</a></li>
+                <li><h3><?php echo $airport->name(); ?> International Airport</h3></li>
+                <li><a href="airport.php?airport=<?php echo $airport->id(); ?>">Home</a></li>
+                <li><a href="history.php?airport=<?php echo $airport->id(); ?>">History</a></li>
+                <li><a href="flights.php?airport=<?php echo $airport->id(); ?>">Flights</a></li>
+                <li><a href="shopping.php?airport=<?php echo $airport->id(); ?>">Shopping & Food</a></li>
+                <li><a href="rentals.php?airport=<?php echo $airport->id(); ?>">Car Rentals</a></li>
+                <li><a href="parking.php?airport=<?php echo $airport->id(); ?>">Parking</a></li>
+                <li><a href="airlines.php?airport=<?php echo $airport->id(); ?>">Airlines</a></li>
+                <li><a href="reviews.php?airport=<?php echo $airport->id(); ?>">Reviews</a></li>
+                <li><a href="faq.php?airport=<?php echo $airport->id(); ?>">FAQ</a></li>
+                <li><a href="contact.php?airport=<?php echo $airport->id(); ?>">Contact</a></li>
               </ul>
             </nav>
           </div>

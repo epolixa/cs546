@@ -1,32 +1,15 @@
             <section class="airport-links">
               <ul>
-                <li class="history">
-                  <a href="history.html">History</a>
-                </li>
-                <li class="flights">
-                  <a href="flights.html">Flights</a>
-                </li>
-                <li class="shopping">
-                  <a href="shopping.html">Shopping</a>
-                </li>
-                <li class="rentals">
-                  <a href="rentals.html">Rentals</a>
-                </li>
-                <li class="parking">
-                  <a href="parking.html">Parking</a>
-                </li>
-                <li class="airlines">
-                  <a href="airlines.html">Airlines</a>
-                </li>
-                <li class="reviews">
-                  <a href="reviews.html">Reviews</a>
-                </li>
-                <li class="faq">
-                  <a href="faq.html">FAQ</a>
-                </li>
-                <li class="contact">
-                  <a href="contact.html">Contact</a>
-                </li>
+                <li><a href="airport.php?airport=<?php echo $airport->id(); ?>">Home</a></li>
+                <li><a href="history.php?airport=<?php echo $airport->id(); ?>">History</a></li>
+                <li><a href="flights.php?airport=<?php echo $airport->id(); ?>">Flights</a></li>
+                <li><a href="shopping.php?airport=<?php echo $airport->id(); ?>">Shopping & Food</a></li>
+                <li><a href="rentals.php?airport=<?php echo $airport->id(); ?>">Car Rentals</a></li>
+                <li><a href="parking.php?airport=<?php echo $airport->id(); ?>">Parking</a></li>
+                <li><a href="airlines.php?airport=<?php echo $airport->id(); ?>">Airlines</a></li>
+                <li><a href="reviews.php?airport=<?php echo $airport->id(); ?>">Reviews</a></li>
+                <li><a href="faq.php?airport=<?php echo $airport->id(); ?>">FAQ</a></li>
+                <li><a href="contact.php?airport=<?php echo $airport->id(); ?>">Contact</a></li>
               </ul>
             </section>
           </div>

@@ -1,17 +1,13 @@
 <?php
-  include "header.php"
+  include_once "header.php";
+  require_once'../includes/Airport.php';
 ?>
-
           <div class="content-right">
             <section class="airport-home">
-              <h2>History of <?php echo $airport ?> International Airport</h2>
+              <h2>History of <?php echo $airport->name() ?> International Airport</h2>
               <p>
                 <?php
-                    include_once "Database_Connection.php";
-                    $sql = "select history from airports where name = '$airport'";
-                    $result = mysql_query($sql);
-                    $row = mysql_fetch_array($result);
-                    echo $row['history'];
+                    echo $airport->history();
                 ?>
               </p>
             </section>
