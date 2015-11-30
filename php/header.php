@@ -30,7 +30,7 @@
                   <li><a href="airport.php?airport=Honolulu">Honolulu International Airport</a></li>
                 </ul>
               </li>
-              <li><a href="#">Register</a>|<a href="#">Login</a></li>
+              <li><a href="LoginAndRegister/register.php">Register</a>|<a href="LoginAndRegister/register.php">Login</a></li>
             </ul>
           </nav>
         </div>
