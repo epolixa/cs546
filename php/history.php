@@ -57,9 +57,16 @@
 
           <div class="content-right">
             <section class="airport-home">
-              <h2><?php echo $airport ?> International Airport</h2>
-              <img src="../images/airport.jpg"></img>
-              <p>battle beetle in a bottle with a fox in a box</p>
+              <h2>History of <?php echo $airport ?> International Airport</h2>
+              <p>
+                <?php
+                    include_once "Database_Connection.php";
+                    $sql = "select history from airports where name = '$airport'";
+                    $result = mysql_query($sql);
+                    $row = mysql_fetch_array($result);
+                    echo $row['history'];
+                ?>
+              </p>
             </section>
 
             <section class="airport-links">

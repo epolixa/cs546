@@ -120,6 +120,7 @@ CREATE TABLE IF NOT EXISTS `shopping` (
   `security_type` varchar(20) NOT NULL,
   `location` varchar(20) NOT NULL,
   `terminal_id` int(11) NOT NULL,
+  `airport` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
@@ -127,10 +128,10 @@ CREATE TABLE IF NOT EXISTS `shopping` (
 -- 导出表中的数据 `shopping`
 --
 
-INSERT INTO `shopping` (`id`, `name`, `security_type`, `location`, `terminal_id`) VALUES
-(1, 'McDonald''s', 'pre-check', '11# terminal 1', 1),
-(2, 'Burger King', 'pre-check', '13# terminal 2', 2),
-(3, 'King Schichuan', 'post-check', '23# terminal 1', 1);
+INSERT INTO `shopping` (`id`, `name`, `security_type`, `location`, `terminal_id`, `airport`) VALUES
+(1, 'McDonald''s', 'pre-check', '11# terminal 1', 1, 'JFK'),
+(2, 'Burger King', 'pre-check', '13# terminal 2', 2, 'JFK'),
+(3, 'King Schichuan', 'post-check', '23# terminal 1', 1, 'JFK');
 
 -- --------------------------------------------------------
 
