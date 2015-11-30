@@ -23,31 +23,62 @@ class Airport
         $contact = filter_var($contact, FILTER_SANITIZE_STRING);
 
         //PREPARE INSERT
-        $stmt = $this->db->prepare_statement("INSERT INTO airports(NULL,?,?,?,?,?)");
-        $stmt->bind_param("sssss", $name, $history, $parking, $faq, $contact);
+        if(!($stmt = $this->db->prepare_statement("INSERT INTO airports(`name`,`history`,`parking`, `faq`,`contact`) VALUES(?,?,?,?,?)")))
+            echo "Prepare failed: (" . $this->db->errno . ") " . $this->db->error;
+        if(!($stmt->bind_param("sssss", $name, $history, $parking, $faq, $contact)))
+            echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 
         //INSERT, POPULATE THIS OBJECT AND RETURN THE ID OF
         // THE DB ENTRY THAT WAS JUST CREATED
         if ($stmt->execute()){
             //SUCCESS
             $ret = $this->db->insertID();
+            $this->id = $ret;
             $stmt->close();
             $this->getAirport($ret);
-            return $ret;
+            return true;
         }else{
             //FAILURE
-            return -1;
+            return false;
         }
 
     }
 
     public function edit($name, $history, $parking, $faq, $contact){
-        return;
+        //CHECK TO SEE IF THIS INSTANCE EVEN EXISTS
+        if($this->id<=0)
+            return false;
+
+        //SANITIZE INPUT
+        $name = filter_var($name, FILTER_SANITIZE_STRING);
+        $history = filter_var($history, FILTER_SANITIZE_STRING);
+        $parking = filter_var($parking, FILTER_SANITIZE_STRING);
+        $faq = filter_var($faq, FILTER_SANITIZE_STRING);
+        $contact = filter_var($contact, FILTER_SANITIZE_STRING);
+        if(!($stmt = $this->db->prepare_statement("UPDATE `airports` SET `name`=?,`history`=?,`parking`=?, `faq`=?,`contact`=? WHERE `id`=?")))
+            echo "Prepare failed: (" . $this->db->e . ") " . $this->db->error;
+        if(!($stmt->bind_param("sssssi", $name, $history, $parking, $faq, $contact,$this->id)))
+            echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+
+        //INSERT, POPULATE THIS OBJECT AND RETURN THE ID OF
+        // THE DB ENTRY THAT WAS JUST CREATED
+        if ($stmt->execute()){
+            //SUCCESS
+            $this->getAirport($this->id);
+            $stmt->close();
+            return true;
+        }else{
+            //FAILURE
+            return false;
+        }
     }
     public function delete(){
-        $stmt = $this->db->prepare_statement("DELETE FROM `airports` WHERE id=?");
-        $stmt->bind_param("i",$this->id);
-        return $stmt->execute();
+        if($this->id>0) {
+            $stmt = $this->db->prepare_statement("DELETE FROM `airports` WHERE `id`=?");
+            $stmt->bind_param("i", $this->id);
+            return $stmt->execute();
+        }
+        return false;
     }
 
 
@@ -97,7 +128,7 @@ class Airport
     }
 
     public function __construct($id=0){
-        $db = new DatabaseConnection();
+        $this->db = new DatabaseConnection();
         if(intval($id) && $id>0)
             $this->getAirport($id);
     }
