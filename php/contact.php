@@ -8,10 +8,10 @@
               <p>
                 <?php
                     include_once "Database_Connection.php";
-                    $sql = "select history from airports where name = '$airport'";
+                    $sql = "select contact from airports where name = '$airport'";
                     $result = mysql_query($sql);
                     $row = mysql_fetch_array($result);
-                    echo $row['history'];
+                    echo $row['contact'];
                 ?>
               </p>
             </section>
