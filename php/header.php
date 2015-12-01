@@ -44,7 +44,7 @@ require_once('../includes/Airport.php');
                 <li><a href="rentals.php?airport=<?php echo $airport->id(); ?>">Car Rentals</a></li>
                 <li><a href="parking.php?airport=<?php echo $airport->id(); ?>">Parking</a></li>
                 <li><a href="airlines.php?airport=<?php echo $airport->id(); ?>">Airlines</a></li>
-                <li><a href="reviews.php?airport=<?php echo $airport->id(); ?>">Reviews</a></li>
+                <li><a href="../Slavik_Code/presentReviews.php?airport=<?php echo $airport->id(); ?>">Reviews</a></li>
                 <li><a href="faq.php?airport=<?php echo $airport->id(); ?>">FAQ</a></li>
                 <li><a href="contact.php?airport=<?php echo $airport->id(); ?>">Contact</a></li>
               </ul>
