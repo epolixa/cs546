@@ -3,9 +3,9 @@
  * These are the database login details
  */  
 define("HOST", "localhost");     // The host you want to connect to.
-define("USER", "sec_users");    // The database username. 
-define("PASSWORD", "eKcGZr59zAa2BEWU");    // The database password. 
-define("DATABASE", "airports");    // The database name.
+define("USER", "root");    // The database username. 
+define("PASSWORD", "");    // The database password. 
+define("DATABASE", "airplanes");    // The database name.
  
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "member");
