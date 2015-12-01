@@ -77,6 +77,7 @@
         }
         
         public function deleteReview($reviewid){
+            
            
            return $this->dbConnection->send_sql("DELETE FROM `reviews` WHERE `ID` = {$reviewid} ");
         }

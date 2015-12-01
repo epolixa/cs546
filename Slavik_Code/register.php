@@ -65,5 +65,6 @@ include_once 'includes/functions.php';
                                    this.form.confirmpwd);" /> 
         </form>
         <p>Return to the <a href="index.php">login page</a>.</p>
+        <p>Click <a href='../home.html'>here</a> to go to the main page.</p>
     </body>
 </html>

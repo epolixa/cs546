@@ -21,8 +21,7 @@ sec_session_start();
                 the user, so pages will be able to determine the type of user
                 authorized to access the page.
             </p>
-            <p>Return to <a href="index.php">login page</a></p>
-
+            <p>Return to <a href="../home.html">main page.</a></p>
             <p> You can <a href="title_content_uploader.php">create your own reviews</a> about any characteristic of the airports.</p> 
             <p> You can also update your own reviews.</p>
             

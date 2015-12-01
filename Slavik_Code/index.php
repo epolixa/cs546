@@ -39,9 +39,11 @@ if (login_check($mysqli) == true) {
                         echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
  
             echo '<p>Do you want to change user? <a href="includes/logout.php">Log out</a>.</p>';
+            echo "<p>Click <a href='../home.html'>here</a> to go to the main page.</p>";
         } else {
                         echo '<p>Currently logged ' . $logged . '.</p>';
-                        echo "<p>If you don't have a login, please <a href='register.php'>register</a></p>";
+                        echo "<p>If you don't have a login, please <a href='register.php'>register.</a></p>";
+                        echo "<p>Click <a href='../home.html'>here</a> to go to the main page.</p>";
                 }
 ?>      
     </body>

@@ -81,7 +81,7 @@
           
           $succeeded = false; 
           $succeeded = $data->deleteReview($_POST["review_id"]);
-
+          
           if(!$succeeded)
            echo "Failure deleting your review!!!<br>";
           else
