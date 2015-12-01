@@ -5,14 +5,8 @@
   position: relative;
 }
 
-html {
-  min-height: 100%;
-}
-
 body {
   font-family: sans-serif;
-  background: #fff url('../images/airplane-background.jpg') center no-repeat;
-  background-size: cover;
 }
 
 a {
