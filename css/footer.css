@@ -1,0 +1,14 @@
+/* footer.css
+ * styles applied to the footer
+ * Erich
+ */
+
+.footer-wrap {
+ margin: 0 20px 0 20px;
+}
+.footer {
+ width: 100%;
+}
+.footer .contact {
+ background: #5B9DDE;
+}

@@ -1,3 +1,8 @@
+/* home.css
+ * styles applied to main home page
+ * Erich
+ */
+
 #home .content {}
 #home .content .main-airports ul {
   display: flex;

@@ -1,15 +1,17 @@
-/* Reset - default browser styles
+/* base.css
+ * separating css keeps things organized
+ * Erich
  */
+
 @import url('reset.css');
-
-/* Style - base structure/styles for all pages
- */
-@import url('style.css');
-
-/* Home - homepage styles
- */
+@import url('structure.css');
+@import url('header.css');
+@import url('footer.css');
 @import url('home.css');
-
-/* Airport - airport landing page styles
- */
+@import url('register.css');
 @import url('airport.css');
+@import url('history.css');
+@import url('flights.css');
+@import url('parking.css');
+@import url('car-rentals.css');
+@import url('shopping.css');

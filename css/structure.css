@@ -1,4 +1,6 @@
-/* General structure
+/* structure.css
+ * base structure styles
+ * Erich
  */
 
 * {
@@ -24,59 +26,7 @@ a:hover {
 }
 
 .container {}
-
-
-
-/* Header
- */
-
-.header-wrap {
-  margin: 20px 20px 40px 20px;
-}
-.header {
-  width: 100%;
-}
-.header .nav-main {
-  background: #5B9DDE;
-  border: 1px solid #000;
-}
-.header .nav-main ul {
-  list-style: none;
-  display: flex;
-}
-.header .nav-main ul li {
-  color: #fff;
-  flex: auto;
-  font-size: 24px;
-  text-align: center;
-  display: inline-block;
-  padding: 20px 0 20px 0;
-}
-.header .nav-main ul li a {
-  color: #fff;
-  margin: 0 8px 0 8px;
-}
-.header .nav-main .airports {
-  cursor: pointer;
-}
-.header .nav-main .airports ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  z-index: 1;
-}
-.header .nav-main .airports ul li {
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
-  background: #5B9DDE;
-  width: 100%;
-}
-
-
-
-/* Content
- */
+  
 .content-wrap {
   margin: 0 20px 40px 20px;
 }
@@ -111,19 +61,4 @@ a:hover {
   width: calc(80% - 25px);
   display: inline-block;
   vertical-align: top;
-}
-
-
-
-/* Footer
- */
-
-.footer-wrap {
-  margin: 0 20px 0 20px;
-}
-.footer {
-  width: 100%;
-}
-.footer .contact {
-  background: #5B9DDE;
 }
