@@ -1,5 +1,5 @@
 <?php
-require_once'connection.php';
+require_once'../includes/connection.php';
 require_once'../includes/Airport.php';
 
 class Common{

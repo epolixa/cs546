@@ -1,5 +1,5 @@
 <?php
-require_once('connection.php');
+require_once('../includes/connection.php');
 /**
  * Created by PhpStorm.
  * User: Class2013

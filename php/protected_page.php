@@ -1,18 +1,16 @@
 <?php
-include_once 'includes/db_connect.php';
-include_once 'includes/functions.php';
-require_once 'data.php';
-
-sec_session_start();
+  include_once "header.php";
+  require_once'../includes/Airport.php';
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Secure Login: Protected Page</title>
-        <link rel="stylesheet" href="styles/main.css" />
-    </head>
-    <body>
+
+<?php
+  include_once '../includes/db_connect.php';
+  include_once '../includes/functions.php';
+  require_once 'data.php';
+  sec_session_start();
+?>
+<div class="content-right">
+  <section class="airport-home">
         <?php if (login_check($mysqli) == true) : ?>
             <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
             <p>
@@ -111,6 +109,8 @@ sec_session_start();
         <script> function deleteConfirmation(){ return confirm("Do you really want to delete this review ?")} 
               function updateConfirmation(){ return confirm("Do you want to update this review ?")}
         </script>
-        <script>  </script>
-    </body>
-</html>
+  </section>
+  <script type="text/javascript" src="checker.js"></script>
+<?php
+  include "footer.php"
+?>

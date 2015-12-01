@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'connection.php';
+    require_once '../includes/connection.php';
 
     class reviewsFormation
     {
@@ -14,7 +14,16 @@
             return $this->dbConnection->send_sql("SELECT * FROM `reviews` WHERE `ID` = {$ID} ")->fetch_all(MYSQLI_ASSOC);
         }
 
-        
+        public function getRentals ($ID)
+        {
+           return $this->dbConnection->send_sql("SELECT * FROM `rentals` WHERE `airportid` = {$ID} ")->fetch_all(MYSQLI_ASSOC);
+        }
+         
+        public function getRentalCompany ($ID) 
+        {
+           return $this->dbConnection->send_sql("SELECT * FROM `carrentalcompany` WHERE `ID` = {$ID} ")->fetch_all(MYSQLI_ASSOC);
+        }
+
         public function getUsersDetails($username)
         {
             return $this->dbConnection->send_sql("SELECT * FROM `members` WHERE `username` = '$username' ")->fetch_all(MYSQLI_ASSOC);

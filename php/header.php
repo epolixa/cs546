@@ -1,6 +1,5 @@
 <?php
 require_once('../includes/Common.php');
-require_once('../includes/Airport.php');
   $airportID = filter_input(INPUT_GET,'airport',FILTER_SANITIZE_NUMBER_INT);
   $airport = new Airport($airportID);
  ?>
@@ -9,8 +8,11 @@ require_once('../includes/Airport.php');
   <head>
     <title>CS 546 Airport Aggregator Project</title>
 
-    <script src="../js/jquery-1.11.3.min.js"></script>
-    <script src="../js/global.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/global.js"></script>
+    <script type="text/javascript" src="../js/sha512.js"></script> 
+    <script type="text/javascript" src="../js/forms.js"></script> 
+    <script type="text/javascript" src="../js/checker.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/base.css">
   </head>
 
@@ -26,7 +28,9 @@ require_once('../includes/Airport.php');
               <li class="airports">
                   <?php Common::airport_nav_dropdown(); ?>
               </li>
-              <li><a href="../LoginAndRegister/register.php">Register</a>|<a href="../LoginAndRegister/register.php">Login</a></li>
+              <li>
+                <a href="./register.php">Register</a>
+                |<a href="./login.php">Login</a></li>
             </ul>
           </nav>
         </div>
@@ -44,7 +48,7 @@ require_once('../includes/Airport.php');
                 <li><a href="rentals.php?airport=<?php echo $airport->id(); ?>">Car Rentals</a></li>
                 <li><a href="parking.php?airport=<?php echo $airport->id(); ?>">Parking</a></li>
                 <li><a href="airlines.php?airport=<?php echo $airport->id(); ?>">Airlines</a></li>
-                <li><a href="../Slavik_Code/presentReviews.php?airport=<?php echo $airport->id(); ?>">Reviews</a></li>
+                <li><a href="reviews.php?airport=<?php echo $airport->id(); ?>">Reviews</a></li>
                 <li><a href="faq.php?airport=<?php echo $airport->id(); ?>">FAQ</a></li>
                 <li><a href="contact.php?airport=<?php echo $airport->id(); ?>">Contact</a></li>
               </ul>

@@ -1,17 +1,14 @@
 <?php
-include_once 'includes/register.inc.php';
-include_once 'includes/functions.php';
+  include_once "header.php";
+  require_once'../includes/Airport.php';
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Secure Login: Registration Form</title>
-        <script src="js/sha512.js"></script> 
-        <script src="js/forms.js"></script>
-    </head>
-    <body>
-        <!-- Registration form to be output if the POST variables are not
+<?php
+    include_once '../includes/register.inc.php';
+    include_once '../includes/functions.php';
+?> 
+<div class="content-right">
+  <section class="airport-home">        
+       <!-- Registration form to be output if the POST variables are not
         set or if the registration script caused an error. -->
         <h1>Register with us</h1>
         <?php
@@ -64,5 +61,10 @@ include_once 'includes/functions.php';
                                    this.form.confirmpwd);" /> 
         </form>
         <p>Return to the <a href="index.php">login page</a>.</p>
-    </body>
-</html>
+        <p>Click <a href='../home.html'>here</a> to go to the main page.</p>
+
+  </section>
+<?php
+  include "footer.php"
+?>
+
