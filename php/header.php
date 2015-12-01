@@ -26,7 +26,7 @@ require_once('../includes/Airport.php');
               <li class="airports">
                   <?php Common::airport_nav_dropdown(); ?>
               </li>
-              <li><a href="LoginAndRegister/register.php">Register</a>|<a href="LoginAndRegister/register.php">Login</a></li>
+              <li><a href="../LoginAndRegister/register.php">Register</a>|<a href="../LoginAndRegister/register.php">Login</a></li>
             </ul>
           </nav>
         </div>
