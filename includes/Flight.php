@@ -26,7 +26,7 @@ class Flight
         //PREPARE INSERT
         if(!($stmt = $this->db->prepare_statement("INSERT INTO `flights`(`flight_number`,`airline_name`,`destination`, `departure_time`, `arrival_time`, `status`, `origin`) VALUES(?,?,?,?,?,?,?)")))
             echo "Prepare failed: (" . $this->db->errno . ") " . $this->db->error;
-        if(!($stmt->bind_param("sssss", $flight_number, $airline_name, $destination, $departure_time, $arrival_time, $status, $origin)))
+        if(!($stmt->bind_param("sssssss", $flight_number, $airline_name, $destination, $departure_time, $arrival_time, $status, $origin)))
             echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 
         //INSERT, POPULATE THIS OBJECT AND RETURN THE ID OF
@@ -34,7 +34,7 @@ class Flight
         if ($stmt->execute()){
             //SUCCESS
             $stmt->close();
-            $this->getFlight($this->flight_number);
+            $this->getFlight($flight_number);
             return true;
         }else{
             //FAILURE
@@ -66,7 +66,7 @@ class Flight
         // THE DB ENTRY THAT WAS JUST CREATED
         if ($stmt->execute()){
             //SUCCESS
-            $this->getFlight($this->flight_number);
+            $this->getFlight($flight_number);
             $stmt->close();
             return true;
         }else{
@@ -100,7 +100,9 @@ class Flight
             $this->origin = $info['origin'];
            $stmt->close();
        }else{
-           //AIRPORT NOT FOUND
+           //AIRPORT NOT
+           echo"Flight not found!";
+           die();
        }
    }
 

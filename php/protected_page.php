@@ -1,9 +1,6 @@
 <?php
   include_once "header.php";
   require_once'../includes/Airport.php';
-?>
-
-<?php
   include_once '../includes/db_connect.php';
   include_once '../includes/functions.php';
   require_once 'data.php';
