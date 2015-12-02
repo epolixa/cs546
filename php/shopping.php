@@ -38,7 +38,7 @@
               </tr>
               <?php
                   include_once "Database_Connection.php";
-                  $sql = "select * from shopping where airport = '$airport'";
+                  $sql = "select * from shopping where airport = " . $airport->id() . "";
                   $result = mysql_query($sql);
                   while($row = mysql_fetch_array($result))
                   {
