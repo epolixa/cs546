@@ -1,5 +1,5 @@
 <?php
-require_once('connection.php');
+require_once('../includes/connection.php');
 /**
  * Created by Jianhong Mou.
  * Date: 12/1/2015
@@ -11,8 +11,8 @@ class Flight
 
     public function create($flight_number, $airline_name, $destination, $departure_time, $arrival_time, $status, $origin)
     {
-        //THIS FUNCCTION WILL TAKE IN THE DATA PASSED THROUGH AND CREATE
-        // A NEW AIRPORT LISTING IN TO THE DATABASE;
+        //THIS FUNCTION WILL TAKE IN THE DATA PASSED THROUGH AND CREATE
+        // A NEW FLIGHT LISTING IN TO THE DATABASE;
 
         //SANITIZE INPUT
         $flight_number = filter_var($flight_number, FILTER_SANITIZE_STRING);
@@ -24,7 +24,7 @@ class Flight
         $origin = filter_var($origin, FILTER_SANITIZE_STRING);
 
         //PREPARE INSERT
-        if(!($stmt = $this->db->prepare_statement("INSERT INTO flights(`flight_number`,`airline_name`,`destination`, `departure_time`, `arrival_time`, `status`, `origin`) VALUES(?,?,?,?,?,?,?)")))
+        if(!($stmt = $this->db->prepare_statement("INSERT INTO `flights`(`flight_number`,`airline_name`,`destination`, `departure_time`, `arrival_time`, `status`, `origin`) VALUES(?,?,?,?,?,?,?)")))
             echo "Prepare failed: (" . $this->db->errno . ") " . $this->db->error;
         if(!($stmt->bind_param("sssss", $flight_number, $airline_name, $destination, $departure_time, $arrival_time, $status, $origin)))
             echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
@@ -34,7 +34,7 @@ class Flight
         if ($stmt->execute()){
             //SUCCESS
             $stmt->close();
-            $this->getAirport($this->flight_number);
+            $this->getFlight($this->flight_number);
             return true;
         }else{
             //FAILURE
@@ -43,7 +43,7 @@ class Flight
 
     }
 
-    public function edit(($flight_number, $airline_name, $destination, $departure_time, $arrival_time, $status, $origin){
+    public function edit($flight_number, $airline_name, $destination, $departure_time, $arrival_time, $status, $origin){
         //CHECK TO SEE IF THIS INSTANCE EVEN EXISTS
         if($this->flight_number == "")
             return false;
@@ -66,7 +66,7 @@ class Flight
         // THE DB ENTRY THAT WAS JUST CREATED
         if ($stmt->execute()){
             //SUCCESS
-            $this->getAirport($this->flight_number);
+            $this->getFlight($this->flight_number);
             $stmt->close();
             return true;
         }else{
@@ -83,22 +83,21 @@ class Flight
         return false;
     }
 
-    private function getAirport($flight_number){
-       $flight_number = filter_var($flight_number,FILTER_SANITIZE_NUMBER_INT);
-       $stmt = $this->db->send_sql("SELECT * FROM flights WHERE flight_number='$flight_number'");
+    private function getFlight($flight_number){
+       $flight_number = filter_var($flight_number,FILTER_SANITIZE_STRING);
+       $stmt = $this->db->send_sql("SELECT * FROM `flights` WHERE `flight_number`='$flight_number'");
        if($stmt->num_rows>0){
            //AIRPORT EXISTS
            //fetch info from the db
            $info = $stmt->fetch_array(MYSQLI_ASSOC);
            //populate class with contents
-            $this->$flight_number = $info['flight_number'];
-            $this->$airline_name = $info['airline_name'];
-            $this->$destination = $info['destination']; 
-            $this->$departure_time = $info['departure_time'];
-            $this->$arrival_time = $info['arrival_time'];
-            $this->$status = $info['status'];
-            $this->$origin = $info['origin'];
-
+            $this->flight_number = $info['flight_number'];
+            $this->airline_name = $info['airline_name'];
+            $this->destination = $info['destination'];
+            $this->departure_time = $info['departure_time'];
+            $this->arrival_time = $info['arrival_time'];
+            $this->status = $info['status'];
+            $this->origin = $info['origin'];
            $stmt->close();
        }else{
            //AIRPORT NOT FOUND
@@ -135,8 +134,8 @@ class Flight
 
     public function __construct($flight_number=""){
         $this->db = new DatabaseConnection();
-        if(!$flight_number != "")
-            $this->getAirport($flight_number);
+        if($flight_number != "")
+            $this->getFlight($flight_number);
     }
 
 }

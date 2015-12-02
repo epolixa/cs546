@@ -1,11 +1,16 @@
-<?php
-  include "header.php"
-?>
+    <?php
+     require_once("../includes/Flight.php");
+    require_once("../includes/Common.php");
+    include_once "header.php";
+    ?>
 
           <div class="content-right">
             <section class="airport-home">
-              <h2>Flights of <?php echo $airport ?> International Airport</h2>
+              <h2>Flights of <?php echo $airport->name(); ?> International Airport</h2>
+                <br>
+                <br>
               <h2>Departures</h2>
+
                 <table>
                 <tr>
                   <th>flight_number</th>
@@ -17,25 +22,23 @@
                   <th>origin</th>
                 </tr>
                 <?php
-                    include_once "Database_Connection.php";
-                    $sql = "select * from flights where origin = '$airport'";
-                    $result = mysql_query($sql);
-                    while($row = mysql_fetch_array($result))
-                    {
-                      echo "<tr>";
-                      echo "<td>".$row['flight_number']."</td>";
-                      echo "<td>".$row['airline_name']."</td>";
-                      echo "<td>".$row['destination']."</td>";
-                      echo "<td>".$row['departure_time']."</td>";
-                      echo "<td>".$row['arrival_time']."</td>";
-                      echo "<td>".$row['status']."</td>";
-                      echo "<td>".$row['origin']."</td>";
-                      echo "</tr>";
+                    $flights = Common::selectFlights("origin","=",$airport->name());
+                if($flights) {
+                    foreach ($flights as $flight) {
+                        echo "<tr>";
+                        echo "<td>" . $flight->flight_number() . "</td>";
+                        echo "<td>" . $flight->airline_name() . "</td>";
+                        echo "<td>" . $flight->destination() . "</td>";
+                        echo "<td>" . $flight->departure_time() . "</td>";
+                        echo "<td>" . $flight->arrival_time() . "</td>";
+                        echo "<td>" . $flight->status() . "</td>";
+                        echo "<td>" . $flight->origin() . "</td>";
+                        echo "</tr>";
                     }
-                    $history = mysql_fetch_row($result);
-                    echo $history[0];
+                }
                 ?>
               </table>
+                <br><br>
               <h2>Arrivals</h2>
                 <table>
                 <tr>
@@ -47,25 +50,20 @@
                   <th>status</th>
                   <th>origin</th>
                 </tr>
-                <?php
-                    include_once "Database_Connection.php";
-                    $sql = "select * from flights where destination = '$airport'";
-                    $result = mysql_query($sql);
-                    while($row = mysql_fetch_array($result))
-                    {
-                      echo "<tr>";
-                      echo "<td>".$row['flight_number']."</td>";
-                      echo "<td>".$row['airline_name']."</td>";
-                      echo "<td>".$row['destination']."</td>";
-                      echo "<td>".$row['departure_time']."</td>";
-                      echo "<td>".$row['arrival_time']."</td>";
-                      echo "<td>".$row['status']."</td>";
-                      echo "<td>".$row['origin']."</td>";
-                      echo "</tr>";
+                    <?php
+                    $flights = Common::selectFlights("destination","=",$airport->name());
+                    foreach($flights as $key=>$flight) {
+                        echo "<tr>";
+                        echo "<td>" . $flight->flight_number() . "</td>";
+                        echo "<td>" . $flight->airline_name() . "</td>";
+                        echo "<td>" . $flight->destination() . "</td>";
+                        echo "<td>" . $flight->departure_time() . "</td>";
+                        echo "<td>" . $flight->arrival_time() . "</td>";
+                        echo "<td>" . $flight->status() . "</td>";
+                        echo "<td>" . $flight->origin() . "</td>";
+                        echo "</tr>";
                     }
-                    $history = mysql_fetch_row($result);
-                    echo $history[0];
-                ?>
+                    ?>
               </table>
             </section>
 

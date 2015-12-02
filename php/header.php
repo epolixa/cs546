@@ -1,5 +1,6 @@
 <?php
 require_once('../includes/Common.php');
+require_once('../includes/Airport.php');
   $airportID = filter_input(INPUT_GET,'airport',FILTER_SANITIZE_NUMBER_INT);
   $airport = new Airport($airportID);
  ?>

@@ -4,7 +4,7 @@
 
           <div class="content-right">
             <section class="airport-home">
-              <h2>Shops of <?php echo $airport ?> International Airport</h2>
+              <h2>Shops of <?php echo $airport->name() ?> International Airport</h2>
                 <table>
                 <tr>
                   <th>id</th>
