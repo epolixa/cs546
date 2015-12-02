@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 require_once('../includes/Common.php');
 require_once('../includes/Airport.php');
@@ -9,12 +8,10 @@ require_once('../includes/Airport.php');
 <html>
   <head>
     <title>CS 546 Airport Aggregator Project</title>
-=======
 <!--  header.php
       header structure
       Erich
 -->
->>>>>>> origin/master
 
 <div class="header-wrap">
   <?php require_once('../includes/Common.php') ?>
