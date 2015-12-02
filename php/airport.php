@@ -30,6 +30,12 @@
             <img src="../images/airport.jpg"></img>
             <p>battle beetle in a bottle with a fox in a box</p>
           </section>
+          <section class="airport-history">
+            <h2>History of <?php echo $airport->name() ?> International Airport</h2>
+            <p>
+              <?php echo $airport->history(); ?>
+            </p>
+          </section>
           <section class="airport-links">
             <ul>
               <li><a href="airport.php?airport=<?php echo $airport->id(); ?>">Home</a></li>
