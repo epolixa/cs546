@@ -3,12 +3,12 @@
       Erich
 -->
 
-<nav class="nav-airport">
+<nav class="nav-secondary">
 
   <!-- $airport initialized in parent -->
 
   <ul>
-    <li><h3><?php echo $airport->name(); ?> International Airport</h3></li>
+    <li><h3><?php echo $airport->name(); ?></h3></li>
     <li><a href="airport.php?airport=<?php echo $airport->id(); ?>">Home</a></li>
     <li><a href="history.php?airport=<?php echo $airport->id(); ?>">History</a></li>
     <li><a href="flights.php?airport=<?php echo $airport->id(); ?>">Flights</a></li>
