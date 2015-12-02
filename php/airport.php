@@ -38,8 +38,6 @@
           </section>
           <section class="airport-links">
             <ul>
-              <li><a href="airport.php?airport=<?php echo $airport->id(); ?>">Home</a></li>
-              <li><a href="history.php?airport=<?php echo $airport->id(); ?>">History</a></li>
               <li><a href="flights.php?airport=<?php echo $airport->id(); ?>">Flights</a></li>
               <li><a href="shopping.php?airport=<?php echo $airport->id(); ?>">Shopping & Food</a></li>
               <li><a href="rentals.php?airport=<?php echo $airport->id(); ?>">Car Rentals</a></li>

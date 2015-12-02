@@ -8,9 +8,7 @@
   <!-- $airport initialized in parent -->
 
   <ul>
-    <li><h3><?php echo $airport->name(); ?></h3></li>
-    <li><a href="airport.php?airport=<?php echo $airport->id(); ?>">Home</a></li>
-    <li><a href="history.php?airport=<?php echo $airport->id(); ?>">History</a></li>
+    <li><h3><a href="airport.php?airport=<?php echo $airport->id(); ?>"><?php echo $airport->name(); ?></a></h3></li>
     <li><a href="flights.php?airport=<?php echo $airport->id(); ?>">Flights</a></li>
     <li><a href="shopping.php?airport=<?php echo $airport->id(); ?>">Shopping & Food</a></li>
     <li><a href="rentals.php?airport=<?php echo $airport->id(); ?>">Car Rentals</a></li>

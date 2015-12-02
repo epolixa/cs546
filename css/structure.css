@@ -35,10 +35,9 @@ a:hover {
   display: block;
 }
 .content-left {
-  width: 20%;
-  vertical-align: top;
-  display: inline-block;
-  margin-right: 20px;
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 20px;
 }
 .content-left .nav-secondary {
   background: #5B9DDE;
@@ -58,7 +57,21 @@ a:hover {
   color: #fff;
 }
 .content-right {
-  width: calc(80% - 25px);
-  display: inline-block;
-  vertical-align: top;
+  width: 100%;
+  display: block;
+}
+
+@media(min-width: 750px)
+{
+  .content-left {
+    width: 20%;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .content-right {
+    width: calc(80% - 25px);
+    display: inline-block;
+    vertical-align: top;
+  }
 }
