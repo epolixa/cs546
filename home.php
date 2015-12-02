@@ -5,7 +5,7 @@
     <title>CS 546 Airport Aggregator Project</title>
 
     <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/global.js"></script>
+    <script src="js/effects.js"></script>
     <link rel="stylesheet" type="text/css" href="css/base.css">
   </head>
 
@@ -15,8 +15,8 @@
         <div class="header">
           <nav class="nav-main">
             <ul>
-              <li><a href="home.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
+              <li><a href="home.php">Home</a></li>
+              <li><a href="about.php">About</a></li>
               <li class="airports">
                 <span>Airports</span>
                 <ul>

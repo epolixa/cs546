@@ -9,8 +9,8 @@
   <div class="header">
     <nav class="nav-main">
       <ul>
-        <li><a href="../home.html">Home</a></li>
-        <li><a href="../about.html">About</a></li>
+        <li><a href="../home.php">Home</a></li>
+        <li><a href="../about.php">About</a></li>
         <li class="airports">
             <?php Common::airport_nav_dropdown(); ?>
         </li>

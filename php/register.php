@@ -1,70 +1,89 @@
+<!--  register.php
+      user registration page
+      Erich
+-->
+
 <?php
-  include_once "header.php";
-  require_once'../includes/Airport.php';
+  include_once '../includes/register.inc.php';
+  include_once '../includes/functions.php';
 ?>
-<?php
-    include_once '../includes/register.inc.php';
-    include_once '../includes/functions.php';
-?> 
-<div class="content-right">
-  <section class="airport-home">        
-       <!-- Registration form to be output if the POST variables are not
-        set or if the registration script caused an error. -->
-        <h1>Register with us</h1>
-        <?php
-        if (!empty($error_msg)) {
-            echo $error_msg;
-        }
-        ?>
-        <ul>
-            <li>Usernames may contain only digits, upper and lowercase letters and underscores</li>
-            <li>Emails must have a valid email format</li>
-            <li>Passwords must be at least 6 characters long</li>
-            <li>Passwords must contain
+
+<!DOCTYPE html>
+
+<html>
+  <?php include_once 'head.php' ?>
+
+  <body>
+    <div id="register" class="container">
+
+      <?php include_once 'header.php' ?>
+
+      <!-- page content -->
+      <div class="content-wrap">
+        <div class="content">
+          <section class="register">
+               <!-- Registration form to be output if the POST variables are not
+                set or if the registration script caused an error. -->
+                <h1>Register with us</h1>
+                <?php
+                if (!empty($error_msg)) {
+                    echo $error_msg;
+                }
+                ?>
                 <ul>
-                    <li>At least one uppercase letter (A..Z)</li>
-                    <li>At least one lowercase letter (a..z)</li>
-                    <li>At least one number (0..9)</li>
+                    <li>Usernames may contain only digits, upper and lowercase letters and underscores</li>
+                    <li>Emails must have a valid email format</li>
+                    <li>Passwords must be at least 6 characters long</li>
+                    <li>Passwords must contain
+                        <ul>
+                            <li>At least one uppercase letter (A..Z)</li>
+                            <li>At least one lowercase letter (a..z)</li>
+                            <li>At least one number (0..9)</li>
+                        </ul>
+                    </li>
+                    <li>Your password and confirmation must match exactly</li>
                 </ul>
-            </li>
-            <li>Your password and confirmation must match exactly</li>
-        </ul>
-        <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" 
-                method="post" 
-                name="registration_form">
-                First name: <input type='text' 
-                name='firstname' 
-                id='firstname' /><br>
-                Last name: <input type='text' 
-                name='lastname' 
-                id='lastname' /><br>
+                <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>"
+                        method="post"
+                        name="registration_form">
+                        First name: <input type='text'
+                        name='firstname'
+                        id='firstname' /><br>
+                        Last name: <input type='text'
+                        name='lastname'
+                        id='lastname' /><br>
 
-            Username: <input type='text' 
-                name='username' 
-                id='username' /><br>
+                    Username: <input type='text'
+                        name='username'
+                        id='username' /><br>
 
-            Email: <input type="text" name="email" id="email" /><br>
-            Password: <input type="password"
-                             name="password" 
-                             id="password"/><br>
-            Confirm password: <input type="password" 
-                                     name="confirmpwd" 
-                                     id="confirmpwd" /><br>
-            <input type="button" 
-                   value="Register" 
-                   onclick="return regformhash(this.form,
-                                   this.form.firstname,
-                                   this.form.lastname,
-                                   this.form.username,
-                                   this.form.email,
-                                   this.form.password,
-                                   this.form.confirmpwd);" /> 
-        </form>
-        <p>Return to the <a href="index.php">login page</a>.</p>
-        <p>Click <a href='../home.html'>here</a> to go to the main page.</p>
+                    Email: <input type="text" name="email" id="email" /><br>
+                    Password: <input type="password"
+                                     name="password"
+                                     id="password"/><br>
+                    Confirm password: <input type="password"
+                                             name="confirmpwd"
+                                             id="confirmpwd" /><br>
+                    <input type="button"
+                           value="Register"
+                           onclick="return regformhash(this.form,
+                                           this.form.firstname,
+                                           this.form.lastname,
+                                           this.form.username,
+                                           this.form.email,
+                                           this.form.password,
+                                           this.form.confirmpwd);" />
+                </form>
+                <p>Return to the <a href="index.php">login page</a>.</p>
+                <p>Click <a href='../home.html'>here</a> to go to the main page.</p>
 
-  </section>
-<?php
-  include "footer.php"
-?>
+          </section>
+        </div>
+      </div>
+      <!-- /content -->
 
+      <?php include_once 'footer.php' ?>
+
+    </div>
+  </body>
+</html>

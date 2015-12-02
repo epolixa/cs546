@@ -4,24 +4,37 @@
   <head>
     <title>CS 546 Airport Aggregator Project</title>
 
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/effects.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
   </head>
 
   <body>
     <div id="about" class="container">
-        <div class="header-wrap">
-          <div class="header">
-            <nav class="nav-main">
-              <ul>
-                <li><a>Home</a></li>
-                <li><a>About</a></li>
-                <li><a>Airports</a></li>
-                <li><a>Register</a>|<a>Login</a></li>
-              </ul>
-            </nav>
-          </div>
+      <div class="header-wrap">
+        <div class="header">
+          <nav class="nav-main">
+            <ul>
+              <li><a href="home.php">Home</a></li>
+              <li><a href="about.php">About</a></li>
+              <li class="airports">
+                <span>Airports</span>
+                <ul>
+                  <li><a href="php/airport.php?airport=1">JFK International Airport</a></li>
+                  <li><a href="php/airport.php?airport=2">San Francisco International Airport</a></li>
+                  <li><a href="php/airport.php?airport=3">Miami Airport</a></li>
+                  <li><a href="php/airport.php?airport=4">Houston George Bush International Airport</a></li>
+                  <li><a href="php/airport.php?airport=5">Honolulu International Airport</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="./php/register.php">Register</a>
+                |<a href="./php/login.php">Login</a>
+              </li>
+            </ul>
+          </nav>
         </div>
+      </div>
 
         <div class="content-wrap">
           <div class="content">
