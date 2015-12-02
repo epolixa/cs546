@@ -19,6 +19,7 @@
 
       <?php include_once 'header.php' ?>
 
+      <!-- page content -->
       <div class="content-wrap">
         <div class="content-left">
           <?php include_once 'nav-airport.php' ?>
@@ -45,6 +46,7 @@
           </section>
         </div>
       </div>
+      <!-- /content -->
 
       <?php include_once 'footer.php' ?>
 
