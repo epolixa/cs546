@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 <!--  login.php
       user login page
       Erich
@@ -41,14 +41,13 @@
                            value="Login"
                            onclick="formhash(this.form, this.form.password);" />
                 </form>
-=======
+
 <?php
   include_once "head.php";
   require_once'../includes/Airport.php';
 ?>
 <div class="content-right">
   <section class="airport-home">
->>>>>>> Stashed changes
 
         <?php
 

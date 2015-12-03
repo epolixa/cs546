@@ -72,7 +72,8 @@
               </tr>
                   <?php
                   $flights = Common::selectFlights("destination","=",$airport->name());
-                  foreach($flights as $key=>$flight) {
+                if($flights){
+                  foreach($flights as $flight) {
                       echo "<tr>";
                       echo "<td>" . $flight->flight_number() . "</td>";
                       echo "<td>" . $flight->airline_name() . "</td>";
@@ -83,6 +84,7 @@
                       echo "<td>" . $flight->origin() . "</td>";
                       echo "</tr>";
                   }
+                }
                   ?>
             </table>
           </section>

@@ -37,22 +37,20 @@
                 <th>airport</th>
               </tr>
               <?php
-                  include_once "Database_Connection.php";
-                  $sql = "select * from shopping where airport = " . $airport->id() . "";
-                  $result = mysql_query($sql);
-                  while($row = mysql_fetch_array($result))
+                  $shops = Common::selectShops("airport","=",$airport->name());
+                  // $sql = "select * from shopping where airport = " . $airport->id() . "";
+                  // $result = mysql_query($sql);
+                  while($shops)
                   {
                     echo "<tr>";
-                    echo "<td>".$row['id']."</td>";
-                    echo "<td>".$row['name']."</td>";
-                    echo "<td>".$row['security_type']."</td>";
-                    echo "<td>".$row['location']."</td>";
-                    echo "<td>".$row['terminal_id']."</td>";
-                    echo "<td>".$row['airport']."</td>";
+                    echo "<td>".$shops['id']."</td>";
+                    echo "<td>".$shops['name']."</td>";
+                    echo "<td>".$shops['security_type']."</td>";
+                    echo "<td>".$shops['location']."</td>";
+                    echo "<td>".$shops['terminal_id']."</td>";
+                    echo "<td>".$shops['airport']."</td>";
                     echo "</tr>";
                   }
-                  $history = mysql_fetch_row($result);
-                  echo $history[0];
               ?>
             </table>
           </section>
