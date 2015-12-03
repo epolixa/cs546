@@ -8,6 +8,8 @@
         private $addEntry;
         private $addUser;
         private $updateEntry;
+        private $getAllUsers;
+        private $deleteUserById;
 
         public function getEntry ($ID)
         {
@@ -27,6 +29,37 @@
         public function getUsersDetails($username)
         {
             return $this->dbConnection->send_sql("SELECT * FROM `members` WHERE `username` = '$username' ")->fetch_all(MYSQLI_ASSOC);
+        }
+       public function deleteUsersById($eId)
+       {
+            echo $eId;
+            $this->deleteUserById->bind_param("i", $IdIn);
+            $this->deleteUserById->execute();
+            
+        }
+
+
+    
+        public function getAllUsers ()
+        {
+             $ret = array ();
+            //$check_query = null;
+            $id = null;
+            $lastName = null;
+            $firstName = null;
+            $username = null;
+            $email = null;
+            
+            $this->getAllUsers->execute();
+            $this->getAllUsers->bind_result($id,$firstName,$lastName,$username,$email);
+            while ($this->getAllUsers->fetch()) {
+                $newEntry = array ("id" => $id, "firstName" => $firstName, "lastName" => $lastName ,"username" =>$username ,"email"=>$email);  
+                 array_push($ret, $newEntry);
+            }
+            return $ret;
+            //else {
+            //  echo "no data find";
+  
         }
 
         
@@ -87,7 +120,6 @@
         
         public function deleteReview($reviewid){
             
-           
            return $this->dbConnection->send_sql("DELETE FROM `reviews` WHERE `ID` = {$reviewid} ");
         }
 
@@ -101,6 +133,9 @@
              echo "addEntry = false" ;
             else
              echo "addEntry = true" ;*/   
+             $this->getAllUsers = $this->dbConnection->prepare_statement(" SELECT id,firstname,lastname,username,email from `members` ");
+            $this->deleteUserById = $this->dbConnection->prepare_statement("DELETE FROM `members` WHERE `id` = ?");
+            
         }
 
         
@@ -113,6 +148,9 @@
             if ($this->addUser) {
                 $this->addUser->close();
             }
+
+            $this->getAllUsers->close();
+            $this->deleteUserById->close();
         }
     }
 

@@ -4,8 +4,13 @@
 -->
 
 <?php
+<<<<<<< Updated upstream
   include_once '../includes/register.inc.php';
   include_once '../includes/functions.php';
+=======
+  include_once "head.php";
+  require_once'../includes/Airport.php';
+>>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
