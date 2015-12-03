@@ -27,10 +27,8 @@
         echo "Rank: " . $blog["rank"] . "<br><br>"; 
       } 
     ?>
- 
   </section>
-  <script type="text/javascript" src="checker.js"></script>
-<?php
-  include "footer.php"
-?>
 
+<?php
+  include "footer.php";
+?>

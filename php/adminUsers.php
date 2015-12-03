@@ -68,7 +68,7 @@ $alluser = $data -> getAllUsers();
 	foreach($alluser as $key => $value){
 		?>
 
-		<form id="deleteUser" enctype="multipart/form-data" method="POST" action="../includes/deleteUsers.php" name="userdeletion_form">
+		<form id="deleteUser" enctype="multipart/form-data" method="POST" action="deleteUsers.php" name="userdeletion_form">
 				
 		<tr>
 			<td>

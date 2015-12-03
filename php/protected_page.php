@@ -1,13 +1,18 @@
 <?php
-  include_once "header.php";
-  require_once'../includes/Airport.php';
-  include_once '../includes/db_connect.php';
-  include_once '../includes/functions.php';
-  require_once 'data.php';
-  sec_session_start();
+include_once '../includes/db_connect.php';
+include_once '../includes/functions.php';
+require_once 'data.php';
+
+sec_session_start();
 ?>
-<div class="content-right">
-  <section class="airport-home">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Secure Login: Protected Page</title>
+        <link rel="stylesheet" href="styles/main.css" />
+    </head>
+    <body>
         <?php if (login_check($mysqli) == true) : ?>
             <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
             <p>
@@ -17,19 +22,29 @@
                 authorized to access the page.
             </p>
             <p>Return to <a href="../home.html">main page.</a></p>
-            <p> You can <a href="title_content_uploader.php">create your own reviews</a> about any characteristic of the airports.</p> 
-            <p> You can also update your own reviews.</p>
+            
             
             <article> <?php 
 
                $data = new reviewsFormation();
                $username = $_SESSION["username"];
+               
                $temp = true;
                $existing = $data->getUsersDetails($username);
 
                $reviewEntries =  $data->joinTables();
+               
+               if(isset($_SESSION["role"]))
+                if($_SESSION["role"] == 0){
+                     echo '<p> You can <a href="title_content_uploader.php">create your own reviews</a> about any characteristic of the airports.</p>'; 
+                     echo '<p> You can also update your own reviews.<br></p>';
+                }     
 
-               if (($existing != false) && ($existing != null))
+               if(isset($_SESSION["role"]))
+                if($_SESSION["role"] == 1) {
+                  echo "<p> You are logged as administrator.<br> To access reviews management click <a href= 'reviewsAdmin.php'> here.</a><br />To access users management click <a href= 'adminUsers.php'> here.</a> </p> ";                  
+                }
+               if (($existing != false) && ($existing != null) && ($_SESSION["role"] == 0))
                 if(count($reviewEntries)!=0){
                  $entry = $existing[0];
                  foreach ($reviewEntries as $blog)                    
@@ -93,6 +108,9 @@
                       echo '</form><br><br>';
                    }
                   } 
+
+               
+
              
               ?> 
             </article>
@@ -106,8 +124,6 @@
         <script> function deleteConfirmation(){ return confirm("Do you really want to delete this review ?")} 
               function updateConfirmation(){ return confirm("Do you want to update this review ?")}
         </script>
-  </section>
-  <script type="text/javascript" src="checker.js"></script>
-<?php
-  include "footer.php"
-?>
+        <script>  </script>
+    </body>
+</html>

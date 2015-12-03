@@ -6,13 +6,13 @@
 </head>
 <body>
   <?php
-  require_once 'data.php';
+  require_once '../php/data.php';
 
   $data = new reviewsFormation();
  
   $deletion = $data -> deleteUsersById($_POST['userID']); 
  
-  echo 'Deletion successful, click back to <a href="adminUsers.php"> My_Post </a> .' ;
+  echo 'Deletion successful, click back to <a href="../php/adminUsers.php"> My_Post </a> .' ;
 
 
   ?>

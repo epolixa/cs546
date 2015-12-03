@@ -54,7 +54,7 @@
                 if (login_check($mysqli) == true) {
                                 echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
 
-                    echo '<p>Do you want to change user? <a href="includes/logout.php">Log out</a>.</p>';
+                    echo '<p>Do you want to change user? <a href="logout.php">Log out</a>.</p>';
                     echo "<p>Click <a href='../home.html'>here</a> to go to the main page.</p>";
                 } else {
                                 echo '<p>Currently logged ' . $logged . '.</p>';

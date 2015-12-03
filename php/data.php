@@ -33,7 +33,7 @@
        public function deleteUsersById($eId)
        {
             echo $eId;
-            $this->deleteUserById->bind_param("i", $IdIn);
+            $this->deleteUserById->bind_param("i", $eId);
             $this->deleteUserById->execute();
             
         }
