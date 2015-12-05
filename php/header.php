@@ -19,6 +19,7 @@
           |
           <a href="./login.php">Login</a>
         </li>
+        <li><a href="protected_page.php">My Page</a></li>
       </ul>
     </nav>
   </div>
