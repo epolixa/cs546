@@ -31,6 +31,7 @@
                 <a href="./php/register.php">Register</a>
                 |<a href="./php/login.php">Login</a>
               </li>
+              <li><a href="php/protected_page.php">My Page</a></li>
             </ul>
           </nav>
         </div>
