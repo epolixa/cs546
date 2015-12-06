@@ -1,6 +1,7 @@
 <?php
   include_once "header.php";
   require_once'../includes/Airport.php';
+
 ?>
 <div class="content-right">
   <section class="airport-home">
@@ -19,7 +20,7 @@
         $temp = $data->getRentalCompany ($blog["companyid"]);
 
         $companyName = $temp[0];
-                               
+        //if($blog["airportid"] ==  )                       
         echo "Company: " . $companyName["Name"] . "<br>";
         echo "Brand: " . $blog["carbrand"] . "<br>";
         echo "Price: " . $blog["price"] . "<br>";

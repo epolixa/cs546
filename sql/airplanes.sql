@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-03 00:02:41
--- 服务器版本： 5.6.17
--- PHP Version: 5.5.12
+-- Generation Time: Dec 06, 2015 at 03:39 PM
+-- Server version: 5.6.26
+-- PHP Version: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `airplanes`
@@ -23,18 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `airlines`
+-- Table structure for table `airlines`
 --
 
 CREATE TABLE IF NOT EXISTS `airlines` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
-  `contact` varchar(40) NOT NULL,
-  PRIMARY KEY (`id`)
+  `contact` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `airlines`
+-- Dumping data for table `airlines`
 --
 
 INSERT INTO `airlines` (`id`, `name`, `contact`) VALUES
@@ -48,21 +47,20 @@ INSERT INTO `airlines` (`id`, `name`, `contact`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `airports`
+-- Table structure for table `airports`
 --
 
 CREATE TABLE IF NOT EXISTS `airports` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `history` text NOT NULL,
   `parking` text NOT NULL,
   `faq` text NOT NULL,
-  `contact` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+  `contact` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `airports`
+-- Dumping data for table `airports`
 --
 
 INSERT INTO `airports` (`id`, `name`, `history`, `parking`, `faq`, `contact`) VALUES
@@ -75,20 +73,17 @@ INSERT INTO `airports` (`id`, `name`, `history`, `parking`, `faq`, `contact`) VA
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ata`
+-- Table structure for table `ata`
 --
 
 CREATE TABLE IF NOT EXISTS `ata` (
   `airportid` int(11) NOT NULL,
   `terminalid` int(11) NOT NULL,
-  `airlineid` int(11) NOT NULL,
-  KEY `fk_airlineid` (`airlineid`),
-  KEY `fk_airport_id` (`airportid`),
-  KEY `fk_terminalid` (`terminalid`)
+  `airlineid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `ata`
+-- Dumping data for table `ata`
 --
 
 INSERT INTO `ata` (`airportid`, `terminalid`, `airlineid`) VALUES
@@ -98,17 +93,16 @@ INSERT INTO `ata` (`airportid`, `terminalid`, `airlineid`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `carrentalcompany`
+-- Table structure for table `carrentalcompany`
 --
 
 CREATE TABLE IF NOT EXISTS `carrentalcompany` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(100) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `ID` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `carrentalcompany`
+-- Dumping data for table `carrentalcompany`
 --
 
 INSERT INTO `carrentalcompany` (`ID`, `Name`) VALUES
@@ -120,7 +114,7 @@ INSERT INTO `carrentalcompany` (`ID`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `flights`
+-- Table structure for table `flights`
 --
 
 CREATE TABLE IF NOT EXISTS `flights` (
@@ -134,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `flights` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `flights`
+-- Dumping data for table `flights`
 --
 
 INSERT INTO `flights` (`flight_number`, `airline_name`, `destination`, `departure_time`, `arrival_time`, `status`, `origin`) VALUES
@@ -145,34 +139,40 @@ INSERT INTO `flights` (`flight_number`, `airline_name`, `destination`, `departur
 -- --------------------------------------------------------
 
 --
--- 表的结构 `members`
+-- Table structure for table `members`
 --
 
 CREATE TABLE IF NOT EXISTS `members` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `firstname` varchar(20) NOT NULL,
   `lastname` varchar(20) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role` int(11) NOT NULL,
   `password` char(128) NOT NULL,
-  `salt` char(128) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `salt` char(128) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `members`
+-- Dumping data for table `members`
 --
 
 INSERT INTO `members` (`id`, `firstname`, `lastname`, `username`, `email`, `role`, `password`, `salt`) VALUES
 (1, 'Bil', 'Clinton', 'bilclinton', 'bilclinton@stevens.edu', 0, '19618b795f6602900ab8b7c0eb80938f22333ded0a1d0d3f7a452863f5ced0d823127e0a51c6b141f26626721ec2cc7bc2a20b8abcff0811e6e3a4b71dd54377', '81f3d043942bb29c929a14731fe691ac244a34904a86fdeef0353d14521dc3963b41b5e4917fabd6fe7da61575b27e0e1b795290362bae80cf44671ca3398a43'),
-(2, 'philip', 'barresi', 'philipbarresi', 'philip@hotmail.com', 0, 'cc70e871d2b415b9b2dc47bb9c7462f7f3581562a4d7e0b09ddac2058ea4b206a88af91d2c94dc5bc058a9eb4c0eed7edf9f0196152a5665ecc5eb548a7b40fe', 'bd992a0659db6b2a6287bcfd76e623853e046372184baa2fc3c2e9c9c0ddf95b8c9113e8089738bb443614cdd13844c84ea169e8a19b88cc85abcff6d1c9adf0'),
-(3, 'Donald', 'Trump', 'democrat_clown', 'sturets@stevens.edu', 0, 'bfa73fadc542482a639be1fd89ec87a4b197d4b1d174765e46d9c1a9853b1d09bc24d69ea35270ce03018fd3c0de41a84b26a8174c29daf5cf87a6dc3e17fdb7', '4ff51e99a4f6eff1c0b01c3641641233a432e5a451b8b64a0ea9a0afa970c59a3ec0b589c82b5a931097291d0235f697b008718e74d7863c2957bd00c2fb5001');
+(2, 'Bred', 'Pitt', 'bredpitt', 'bredpitt@hotmail.com', 0, 'cc70e871d2b415b9b2dc47bb9c7462f7f3581562a4d7e0b09ddac2058ea4b206a88af91d2c94dc5bc058a9eb4c0eed7edf9f0196152a5665ecc5eb548a7b40fe', 'bd992a0659db6b2a6287bcfd76e623853e046372184baa2fc3c2e9c9c0ddf95b8c9113e8089738bb443614cdd13844c84ea169e8a19b88cc85abcff6d1c9adf0'),
+(3, 'Donald', 'Trump', 'republican_ace', 'sturets@stevens.edu', 0, 'bfa73fadc542482a639be1fd89ec87a4b197d4b1d174765e46d9c1a9853b1d09bc24d69ea35270ce03018fd3c0de41a84b26a8174c29daf5cf87a6dc3e17fdb7', '4ff51e99a4f6eff1c0b01c3641641233a432e5a451b8b64a0ea9a0afa970c59a3ec0b589c82b5a931097291d0235f697b008718e74d7863c2957bd00c2fb5001'),
+(4, 'Steven', 'Seagal', 'stevenseagal', 'stevenseagal@gmail.com', 1, 'ac613ba31a2a4d75bed752190c43cff070512b1e7e88cc6723b187add3c28e159a7c7bac99d0e648216fff411b9c6320f9143aa6027328620c44815301c82c11', '14fcf470225435dc10eaa7626e035aa4e6d67a51eb5ca1219c175c17f875340858ab1c7b1baedc6a39913cb60039bec54848e8cccaf6316275768e69116c54fb'),
+(5, 'Hilary', 'Clinton', 'barking_democrat', 'hilaryclinton@gmail.com', 0, 'f98facfdd15cf02da5d62092ced6be8873d91a4360d22025d9b2e387c70b95bdf9cd8debbc4b6d70099ced0ff7cc6b262beec5f836ceab934f73e45d4346c7b8', 'adb1ec6093f8666976e86be0b9528a5f357e600dddb7526f93f1752957e4c0f43be36d3e261e212c8a5beee27cc896cd7a9052ca0d029f335510305fade832f5'),
+(6, 'Bernie', 'Sanders', 'loserof2016', 'berniesanders@hotmail.com', 0, 'a7863e4b020002ffa75d8cb804b428462e775842ba771e3e567d7c29af779e885982b31026a792fbb03420db82b392c6ecd3b67370b7a280ee08cf5499d60cff', '7fc4a4ffa2002eed2e108f5010c872bdd2d9e34fe0ca3c7ab50225495c91042ac871910a352385d2009ce20985f1829d9bbae2800fc821c99ad8d1f3e17d3060'),
+(7, 'Carly', 'Fiorina', 'carlyfiorina', 'smartrepublican@gmail.com', 0, 'b180620ebbe2991ecd8d3189162f4a4e1eefe3c8eb75cbcc100ea242d9dccabed66a3b2874527ab63fcf8e21087c0996e03bfc99f337c22c5d558f11b684b2bc', 'ab64092683d5551ecb01902f1b02970414f6b0acd987b5b0df9afa001e60756b78c8c154b5d1fba6cc8ea8734e3da2167bf61362d3e7e92d6ea27e4fbe9e553f'),
+(8, 'Ben', 'Carson', 'bencarson', 'neurosurgeon@stevens.edu', 1, '87ca64574fe2ecae5306e91422f38c56ec9967a80083700e038a1d8c8a69c7014641edf4eeb46eb738f63e4cf34b7d16ed493045238b7c1b9956ed8b25de8798', '56c2591ba0e92b9d75e15571006940c7bb3c5f5fefe1fa065834101dc0e0f8a91907a753b32eb429c591b137194bb517b5ae49a10d5970081fbbeb57844f6168'),
+(9, 'Condoleezza', 'Rice', 'leezzarice', 'securityadvisor@yahoo.com', 0, 'ee3197e0d5a6dc7d2916965dbac4c5ccdbcc302fe87b3aebe8d073ade2ba1aeec43a018dc8c2ff1bc1dd63dbb005508df70d402b8faf02a2a133106b8b5a0972', '7fffc12f7e5d1f36364c279002b6ea8d9bfd1993ee126a584c76ab1c00df23072382b53cb440608be7ca4abad65293ee15590781d702622b1c68899175f152c9'),
+(10, 'George', 'Washington', 'firstpresident', 'firstpresident@stevens.edu', 1, '7a700a8bc97fe74071e6675c1ac2ff4271f4987f0bb1484e28ac7c83a68e333bc9e67409fc5b7ac38456396887437d77a09c03987e1c27bae35f3ca164eb3e47', '2b902eaccb11c43b88c501af22696fd2915ef94693948443a8cc963ff3ccdbf1bc9c81fc06a4af52d268fe1ae4d55a9da8bd8594029f67513313cfeceb891a97');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `rentals`
+-- Table structure for table `rentals`
 --
 
 CREATE TABLE IF NOT EXISTS `rentals` (
@@ -184,14 +184,11 @@ CREATE TABLE IF NOT EXISTS `rentals` (
   `quantity` int(11) NOT NULL,
   `startdate` date NOT NULL,
   `enddate` date NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`),
-  KEY `fk_companyid` (`companyid`),
-  KEY `fk_airportid` (`airportid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `rentals`
+-- Dumping data for table `rentals`
 --
 
 INSERT INTO `rentals` (`companyid`, `airportid`, `carbrand`, `price`, `rank`, `quantity`, `startdate`, `enddate`, `id`) VALUES
@@ -201,46 +198,56 @@ INSERT INTO `rentals` (`companyid`, `airportid`, `carbrand`, `price`, `rank`, `q
 -- --------------------------------------------------------
 
 --
--- 表的结构 `reviews`
+-- Table structure for table `reviews`
 --
 
 CREATE TABLE IF NOT EXISTS `reviews` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) NOT NULL,
   `UserID` int(11) NOT NULL,
   `Title` varchar(100) NOT NULL,
   `Content` varchar(10000) NOT NULL,
   `Rank` int(11) NOT NULL,
   `Date` date NOT NULL,
-  `AirportID` int(11) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `AirportID` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `reviews`
+-- Dumping data for table `reviews`
 --
 
 INSERT INTO `reviews` (`ID`, `UserID`, `Title`, `Content`, `Rank`, `Date`, `AirportID`) VALUES
-(2, 1, 'test', 'test', 1, '2015-11-30', 1);
+(2, 3, 'JFK International Airport', 'Awesome international airport, except for the challenging traffic to get there. ', 10, '2015-11-30', 1),
+(3, 3, 'HGB Intercontinental Airport', 'The newer of the two airports that offer commercial flights in and out of Houston. The Bush International Airport is conveniently located on the outskirts of downtown Houston.I am disappointed with both the layout and lack of businesses within the terminal.', 7, '2015-12-01', 3),
+(4, 7, 'Miami International Airport', 'The airport is clean and seems fairly new, but that is about where my praise ends. \r\nNow I can''t rant about the Delta service, the traffic, or any of the other stuff that people like to blame airports for. What I can fault them for is the fact that the airport was freezing and you had to walk seemingly forever to get anywhere.', 6, '2015-11-25', 4),
+(6, 7, 'Honolulu International Airport', 'They took my banana and wouldn''t let me eat it. They just took it. Banana stealers!!! Eat all fruits BEFOREhand. Don''t count on that being your snack. The security lines went quickly but TSA was power tripping more than usual here today. \r\nThere aren''t any water bottle fill stations that I could find, maybe those will get added with all the construction that''s going on. \r\nI wasn''t impressed with the shopping.', 5, '2015-12-07', 5),
+(7, 9, 'San Francisco International Airport', 'Have flown in and out of here hundreds of times, but have never noticed the aerial view. Other than than. Good spot to fly out of for over seas adventures. Still a bit chaotic, but manageable. ', 10, '2015-11-23', 2),
+(8, 9, 'Honolulu International Airport', 'Honolulu Airport is your gateway, your portal to either permanently or temporarily escape, that is if you live in Hawaii.', 9, '2015-11-03', 5),
+(9, 1, 'San Francisco Airport', 'I''ve landed in heaven on earth! Beautiful skies from 10,000 ft to the ground. San Francisco starts and stops at this very place SFO.  Very nice airport, not much complication. Actually pretty easy to navigate from terminals to baggage claim to taxi/shuttle service. ', 10, '2015-11-15', 2),
+(10, 1, 'Miami International Airport', 'Miami airport isn''t bad. They modeled it with light colors so it''s very inviting and fitting for Miami. They have many food options and a SkyTrain (always a plus). Most gates have 1-2 Verizon power stations to recharge your phones and computers. There is wifi, but only the first 30 minutes is free.', 8, '2015-11-20', 4),
+(11, 2, 'JFK International Airport', 'JFK is a very chic airport. Terminal 8 seems very modern compared to the whole La Guardia International Airport for sure, and it''s bigger and just has a better feel to it.', 9, '2015-11-18', 1),
+(12, 2, 'George Bush Intercontinental Airport', 'I am disappointed with both the layout and lack of  businesses within the terminal.  For an airport that services as many flights as they do I would expect to see something simular to the Delta terminal in Detroit,  DFW, St Paul or Chicago.', 5, '2015-11-23', 3),
+(14, 6, 'Honolulu International Airport', 'There are outdoor parts which get pretty humid, given the island air and the clusters of humans, and indoor areas near the gates that are air conditioned.\r\n', 6, '2015-10-22', 5),
+(15, 5, 'San Francisco International Airport', 'Great airport with lots of shopping and eating places . Right now going through enhancement but clear signs to help. Since I fly in and out to Bakersfield mostly so do lot know much about other terminals but United . Hope they are also as good as United .', 10, '2015-11-01', 2),
+(16, 6, 'Miami International Airport', 'The airport was clean and has lots of shops. The Starbucks was too busy to stop at of course. \r\nIt''s a little bit of trek to the car rental center but they have bouncy fast walks to get you there. So it''s a fun trek. \r\nI liked all of the art and such around the terminals.', 10, '2015-10-10', 4),
+(17, 6, 'JFK International Airport', 'I had a very positive experience here! Everyone I asked a question was incredibly friendly and helpful. The security guard checking board passes in the security like was just a ray of sunshine cracking jokes with everyone and the cashier at one of the food spots went to the back to check with her team and recommend the perfect store to get some last minute souvenirs (the shop was a little hidden around the corner so I might have missed or otherwise).', 10, '2015-10-23', 1);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `shopping`
+-- Table structure for table `shopping`
 --
 
 CREATE TABLE IF NOT EXISTS `shopping` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `security_type` varchar(20) NOT NULL,
   `location` varchar(20) NOT NULL,
   `terminal_id` int(11) NOT NULL,
-  `airport` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_terminal_id` (`terminal_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `airport` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `shopping`
+-- Dumping data for table `shopping`
 --
 
 INSERT INTO `shopping` (`id`, `name`, `security_type`, `location`, `terminal_id`, `airport`) VALUES
@@ -251,18 +258,17 @@ INSERT INTO `shopping` (`id`, `name`, `security_type`, `location`, `terminal_id`
 -- --------------------------------------------------------
 
 --
--- 表的结构 `terminal`
+-- Table structure for table `terminal`
 --
 
 CREATE TABLE IF NOT EXISTS `terminal` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
-  `airports_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+  `airports_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `terminal`
+-- Dumping data for table `terminal`
 --
 
 INSERT INTO `terminal` (`id`, `name`, `airports_id`) VALUES
@@ -275,11 +281,113 @@ INSERT INTO `terminal` (`id`, `name`, `airports_id`) VALUES
 (7, 'Terminal 8', 1);
 
 --
--- 限制导出的表
+-- Indexes for dumped tables
 --
 
 --
--- 限制表 `ata`
+-- Indexes for table `airlines`
+--
+ALTER TABLE `airlines`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `airports`
+--
+ALTER TABLE `airports`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ata`
+--
+ALTER TABLE `ata`
+  ADD KEY `fk_airlineid` (`airlineid`),
+  ADD KEY `fk_airport_id` (`airportid`),
+  ADD KEY `fk_terminalid` (`terminalid`);
+
+--
+-- Indexes for table `carrentalcompany`
+--
+ALTER TABLE `carrentalcompany`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `members`
+--
+ALTER TABLE `members`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rentals`
+--
+ALTER TABLE `rentals`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_companyid` (`companyid`),
+  ADD KEY `fk_airportid` (`airportid`);
+
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `shopping`
+--
+ALTER TABLE `shopping`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_terminal_id` (`terminal_id`);
+
+--
+-- Indexes for table `terminal`
+--
+ALTER TABLE `terminal`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `airports`
+--
+ALTER TABLE `airports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `carrentalcompany`
+--
+ALTER TABLE `carrentalcompany`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `members`
+--
+ALTER TABLE `members`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `rentals`
+--
+ALTER TABLE `rentals`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `shopping`
+--
+ALTER TABLE `shopping`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `terminal`
+--
+ALTER TABLE `terminal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `ata`
 --
 ALTER TABLE `ata`
   ADD CONSTRAINT `fk_airlineid` FOREIGN KEY (`airlineid`) REFERENCES `airlines` (`id`),
@@ -287,14 +395,14 @@ ALTER TABLE `ata`
   ADD CONSTRAINT `fk_terminalid` FOREIGN KEY (`terminalid`) REFERENCES `terminal` (`id`);
 
 --
--- 限制表 `rentals`
+-- Constraints for table `rentals`
 --
 ALTER TABLE `rentals`
   ADD CONSTRAINT `fk_airportid` FOREIGN KEY (`airportid`) REFERENCES `airports` (`id`),
   ADD CONSTRAINT `fk_companyid` FOREIGN KEY (`companyid`) REFERENCES `carrentalcompany` (`ID`);
 
 --
--- 限制表 `shopping`
+-- Constraints for table `shopping`
 --
 ALTER TABLE `shopping`
   ADD CONSTRAINT `fk_terminal_id` FOREIGN KEY (`terminal_id`) REFERENCES `terminal` (`id`);

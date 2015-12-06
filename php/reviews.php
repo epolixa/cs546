@@ -35,7 +35,6 @@
                 sec_session_start();
                 $data = new reviewsFormation();
                 $exisitng = true;
-
                 $reviewsEntries =  $data->joinTables();
 
 
@@ -66,11 +65,14 @@
                 if ($airportName == 5)
                   $airportName = "Honolulu International Airport";
 
+                   if($blog["AirportID"] == $airport->id()){
                    echo "By: " . $blog["FirstName"] . " " . $blog["LastName"]. "<br>";
                    echo "Airport: " . $airportName . "<br>";
                    echo "Date: " . date("m-d-Y", strtotime($blog["Date"])) . "<br>";
                    echo "Title: " . $blog["Title"] . "<br>";
-                   echo "Content: " . htmlspecialchars($blog["Content"]) . "<br><br>";
+                   echo "Content: " . htmlspecialchars($blog["Content"]) . "<br>";
+                   echo "Rank: " . $blog["Rank"] . "<br><br>";
+                 }
                 }
               }
 

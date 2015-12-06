@@ -69,6 +69,11 @@
             return $this->dbConnection->send_sql("SELECT Content,Title,reviews.`ID`,Rank,reviews.`Date`,AirportID,FirstName,LastName,userID FROM members INNER JOIN reviews ON members.`ID` = reviews.`UserID` ")->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function showReviews($airportid)
+        {
+            return $this->dbConnection->send_sql("SELECT Content,Title,reviews.`ID`,Rank,reviews.`Date`,AirportID,FirstName,LastName,userID FROM members INNER JOIN reviews ON members.`ID` = reviews.`UserID`")->fetch_all(MYSQLI_ASSOC);
+        }
+
         public function updateBlogEntry($title,$content,$rank,$airportid,$reviewid){
           
           $this->updateEntry->bind_param("ssiii",$title,$content,$rank,$airportid,$reviewid);
