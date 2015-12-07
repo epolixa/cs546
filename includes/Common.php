@@ -39,14 +39,15 @@ class Common{
 
     public static function selectAirlines($whereField="",$whereOperator="",$whereValue=""){
         $db =  new DatabaseConnection();
-        $sql = "SELECT * FROM `airlines`";
+        $sql = "SELECT `id`,`name`,`contact` FROM `airlines`, `ata` WHERE ata.`airlineid` = airlines.`id`";
         if($whereField!="" && in_array($whereOperator,array(">","<","<=",">=","=","<>")) && $whereValue!="")
-            $sql .=" WHERE ".$whereField."". $whereOperator."'".$whereValue."'";
+            $sql .=" AND ".$whereField."". $whereOperator."'".$whereValue."'";
         $stmt = $db->send_sql($sql);
+        // die($sql);
         if($stmt->num_rows>0){
             $count = 0;
             while($row = $stmt->fetch_array(MYSQLI_ASSOC)){
-                $ret[$count] = new Flight($row['id']);
+                $ret[$count] = $row;
                 $count++;
             }
             $stmt->close();

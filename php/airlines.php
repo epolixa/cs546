@@ -26,7 +26,7 @@
         </div>
         <div class="content-right">
           <section class="airport-flights">
-            <h2>Flights of <?php echo $airport->name(); ?> International Airport</h2>
+            <h2>Airlines of <?php echo $airport->name(); ?> International Airport</h2>
               <br>
               <br>
 
@@ -37,17 +37,13 @@
                 <th>Contact</th>
               </tr>
               <?php
-                  $airlines = DatabaseConnection::send_sql("SELECT * FROM airlines");
+                  $airlines = Common::selectAirlines("ata.airportid", "=", "$airportID");
               if($airlines) {
                   foreach ($airlines as $airline) {
                       echo "<tr>";
-                      echo "<td>" . $flight->flight_number() . "</td>";
-                      echo "<td>" . $flight->airline_name() . "</td>";
-                      echo "<td>" . $flight->destination() . "</td>";
-                      echo "<td>" . $flight->departure_time() . "</td>";
-                      echo "<td>" . $flight->arrival_time() . "</td>";
-                      echo "<td>" . $flight->status() . "</td>";
-                      echo "<td>" . $flight->origin() . "</td>";
+                      echo "<td>" . $airline['id'] . "</td>";
+                      echo "<td>" . $airline['name'] . "</td>";
+                      echo "<td>" . $airline['contact'] . "</td>";
                       echo "</tr>";
                   }
               }
