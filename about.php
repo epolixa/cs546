@@ -1,5 +1,3 @@
-<?php require_once('../includes/Common.php') ?>
-
 <!DOCTYPE html>
 
 <html>
@@ -24,7 +22,14 @@
               <li><a href="home.php">Home</a></li>
               <li><a href="about.php">About</a></li>
               <li class="airports">
-                <?php Common::airport_nav_dropdown(); ?>
+                <span>Airports</span>
+                <ul>
+                  <li><a href="php/airport.php?airport=1">JFK International Airport</a></li>
+                  <li><a href="php/airport.php?airport=2">San Francisco International Airport</a></li>
+                  <li><a href="php/airport.php?airport=3">Miami Airport</a></li>
+                  <li><a href="php/airport.php?airport=4">Houston George Bush International Airport</a></li>
+                  <li><a href="php/airport.php?airport=5">Honolulu International Airport</a></li>
+                </ul>
               </li>
               <li>
                 <a href="./php/register.php">Register</a>
