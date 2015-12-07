@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2015 at 03:39 PM
--- Server version: 5.6.26
--- PHP Version: 5.6.12
+-- Generation Time: 2015-12-07 22:12:33
+-- 服务器版本： 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `airplanes`
@@ -23,17 +23,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `airlines`
+-- 表的结构 `airlines`
 --
 
 CREATE TABLE IF NOT EXISTS `airlines` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
-  `contact` varchar(40) NOT NULL
+  `contact` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `airlines`
+-- 转存表中的数据 `airlines`
 --
 
 INSERT INTO `airlines` (`id`, `name`, `contact`) VALUES
@@ -53,20 +54,21 @@ INSERT INTO `airlines` (`id`, `name`, `contact`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `airports`
+-- 表的结构 `airports`
 --
 
 CREATE TABLE IF NOT EXISTS `airports` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `history` text NOT NULL,
   `parking` text NOT NULL,
   `faq` text NOT NULL,
-  `contact` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `contact` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `airports`
+-- 转存表中的数据 `airports`
 --
 
 INSERT INTO `airports` (`id`, `name`, `history`, `parking`, `faq`, `contact`) VALUES
@@ -79,17 +81,20 @@ INSERT INTO `airports` (`id`, `name`, `history`, `parking`, `faq`, `contact`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ata`
+-- 表的结构 `ata`
 --
 
 CREATE TABLE IF NOT EXISTS `ata` (
   `airportid` int(11) NOT NULL,
   `terminalid` int(11) NOT NULL,
-  `airlineid` int(11) NOT NULL
+  `airlineid` int(11) NOT NULL,
+  KEY `fk_airlineid` (`airlineid`),
+  KEY `fk_airport_id` (`airportid`),
+  KEY `fk_terminalid` (`terminalid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ata`
+-- 转存表中的数据 `ata`
 --
 
 INSERT INTO `ata` (`airportid`, `terminalid`, `airlineid`) VALUES
@@ -121,16 +126,17 @@ INSERT INTO `ata` (`airportid`, `terminalid`, `airlineid`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carrentalcompany`
+-- 表的结构 `carrentalcompany`
 --
 
 CREATE TABLE IF NOT EXISTS `carrentalcompany` (
-  `ID` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `carrentalcompany`
+-- 转存表中的数据 `carrentalcompany`
 --
 
 INSERT INTO `carrentalcompany` (`ID`, `Name`) VALUES
@@ -150,7 +156,7 @@ INSERT INTO `carrentalcompany` (`ID`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `flights`
+-- 表的结构 `flights`
 --
 
 CREATE TABLE IF NOT EXISTS `flights` (
@@ -164,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `flights` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `flights`
+-- 转存表中的数据 `flights`
 --
 
 INSERT INTO `flights` (`flight_number`, `airline_name`, `destination`, `departure_time`, `arrival_time`, `status`, `origin`) VALUES
@@ -182,31 +188,29 @@ INSERT INTO `flights` (`flight_number`, `airline_name`, `destination`, `departur
 ('SL 732', 'American Eagle', 'JFK', '2015-11-30 12:37:11', '2015-11-30 18:37:21', 'en-route', 'SanFrancisco'),
 ('EW 4822', 'Delta Air Lines', 'Boston', '2015-11-30 20:29:54', '2015-11-30 22:30:14', 'en-route', 'Honolulu'),
 ('SI 109', 'American Airlines', 'Miami', '2015-11-30 21:33:37', '2015-11-30 23:54:34', 'delayed', 'JFK'),
-('OU 7172', 'Arik Air', 'HGB', '2015-11-30 12:37:11', '2015-11-30 18:37:21', 'en-route', 'SanFrancisco');
-
-
-
-
+('OU 7172', 'Arik Air', 'HGB', '2015-11-30 12:37:11', '2015-11-30 18:37:21', 'en-route', 'SanFrancisco'),
+('fe222', '321', 'HBG', '2012-03-03 00:00:00', '2012-03-02 00:00:00', 'scheduled', 'JFK');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `members`
+-- 表的结构 `members`
 --
 
 CREATE TABLE IF NOT EXISTS `members` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `firstname` varchar(20) NOT NULL,
   `lastname` varchar(20) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role` int(11) NOT NULL,
   `password` char(128) NOT NULL,
-  `salt` char(128) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `salt` char(128) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `members`
+-- 转存表中的数据 `members`
 --
 
 INSERT INTO `members` (`id`, `firstname`, `lastname`, `username`, `email`, `role`, `password`, `salt`) VALUES
@@ -219,12 +223,13 @@ INSERT INTO `members` (`id`, `firstname`, `lastname`, `username`, `email`, `role
 (7, 'Carly', 'Fiorina', 'carlyfiorina', 'smartrepublican@gmail.com', 0, 'b180620ebbe2991ecd8d3189162f4a4e1eefe3c8eb75cbcc100ea242d9dccabed66a3b2874527ab63fcf8e21087c0996e03bfc99f337c22c5d558f11b684b2bc', 'ab64092683d5551ecb01902f1b02970414f6b0acd987b5b0df9afa001e60756b78c8c154b5d1fba6cc8ea8734e3da2167bf61362d3e7e92d6ea27e4fbe9e553f'),
 (8, 'Ben', 'Carson', 'bencarson', 'neurosurgeon@stevens.edu', 1, '87ca64574fe2ecae5306e91422f38c56ec9967a80083700e038a1d8c8a69c7014641edf4eeb46eb738f63e4cf34b7d16ed493045238b7c1b9956ed8b25de8798', '56c2591ba0e92b9d75e15571006940c7bb3c5f5fefe1fa065834101dc0e0f8a91907a753b32eb429c591b137194bb517b5ae49a10d5970081fbbeb57844f6168'),
 (9, 'Condoleezza', 'Rice', 'leezzarice', 'securityadvisor@yahoo.com', 0, 'ee3197e0d5a6dc7d2916965dbac4c5ccdbcc302fe87b3aebe8d073ade2ba1aeec43a018dc8c2ff1bc1dd63dbb005508df70d402b8faf02a2a133106b8b5a0972', '7fffc12f7e5d1f36364c279002b6ea8d9bfd1993ee126a584c76ab1c00df23072382b53cb440608be7ca4abad65293ee15590781d702622b1c68899175f152c9'),
-(10, 'George', 'Washington', 'firstpresident', 'firstpresident@stevens.edu', 1, '7a700a8bc97fe74071e6675c1ac2ff4271f4987f0bb1484e28ac7c83a68e333bc9e67409fc5b7ac38456396887437d77a09c03987e1c27bae35f3ca164eb3e47', '2b902eaccb11c43b88c501af22696fd2915ef94693948443a8cc963ff3ccdbf1bc9c81fc06a4af52d268fe1ae4d55a9da8bd8594029f67513313cfeceb891a97');
+(10, 'George', 'Washington', 'firstpresident', 'firstpresident@stevens.edu', 1, '7a700a8bc97fe74071e6675c1ac2ff4271f4987f0bb1484e28ac7c83a68e333bc9e67409fc5b7ac38456396887437d77a09c03987e1c27bae35f3ca164eb3e47', '2b902eaccb11c43b88c501af22696fd2915ef94693948443a8cc963ff3ccdbf1bc9c81fc06a4af52d268fe1ae4d55a9da8bd8594029f67513313cfeceb891a97'),
+(11, 'Jianhong', 'Mou', 'Joey', 'moujianhong@qq.com', 1, '6d6465fd3210f89040395a0aefcb0e6f74c75a5dd35d6cde1f6533b42be301efb7dd667b60df1731e60ef907e3ad9c6c02e47ff32a66a4d4ff2b075af600fc4e', 'ca1fb27978cbef731394bd4f262a0d7228ef04a127b662f72a3754e159532855e3fb313d358234d215e530c2b0cc7bf1cdc340d177490961adde83628bd74d88');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rentals`
+-- 表的结构 `rentals`
 --
 
 CREATE TABLE IF NOT EXISTS `rentals` (
@@ -236,11 +241,14 @@ CREATE TABLE IF NOT EXISTS `rentals` (
   `quantity` int(11) NOT NULL,
   `startdate` date NOT NULL,
   `enddate` date NOT NULL,
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `fk_companyid` (`companyid`),
+  KEY `fk_airportid` (`airportid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `rentals`
+-- 转存表中的数据 `rentals`
 --
 
 INSERT INTO `rentals` (`companyid`, `airportid`, `carbrand`, `price`, `rank`, `quantity`, `startdate`, `enddate`, `id`) VALUES
@@ -260,21 +268,22 @@ INSERT INTO `rentals` (`companyid`, `airportid`, `carbrand`, `price`, `rank`, `q
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reviews`
+-- 表的结构 `reviews`
 --
 
 CREATE TABLE IF NOT EXISTS `reviews` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `UserID` int(11) NOT NULL,
   `Title` varchar(100) NOT NULL,
   `Content` varchar(10000) NOT NULL,
   `Rank` int(11) NOT NULL,
   `Date` date NOT NULL,
-  `AirportID` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `AirportID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Dumping data for table `reviews`
+-- 转存表中的数据 `reviews`
 --
 
 INSERT INTO `reviews` (`ID`, `UserID`, `Title`, `Content`, `Rank`, `Date`, `AirportID`) VALUES
@@ -296,20 +305,22 @@ INSERT INTO `reviews` (`ID`, `UserID`, `Title`, `Content`, `Rank`, `Date`, `Airp
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shopping`
+-- 表的结构 `shopping`
 --
 
 CREATE TABLE IF NOT EXISTS `shopping` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `security_type` varchar(20) NOT NULL,
   `location` varchar(20) NOT NULL,
   `terminal_id` int(11) NOT NULL,
-  `airport` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `airport` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_terminal_id` (`terminal_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
--- Dumping data for table `shopping`
+-- 转存表中的数据 `shopping`
 --
 
 INSERT INTO `shopping` (`id`, `name`, `security_type`, `location`, `terminal_id`, `airport`) VALUES
@@ -335,17 +346,18 @@ INSERT INTO `shopping` (`id`, `name`, `security_type`, `location`, `terminal_id`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `terminal`
+-- 表的结构 `terminal`
 --
 
 CREATE TABLE IF NOT EXISTS `terminal` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
-  `airports_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  `airports_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
--- Dumping data for table `terminal`
+-- 转存表中的数据 `terminal`
 --
 
 INSERT INTO `terminal` (`id`, `name`, `airports_id`) VALUES
@@ -385,113 +397,11 @@ INSERT INTO `terminal` (`id`, `name`, `airports_id`) VALUES
 (34, 'Terminal 8', 5);
 
 --
--- Indexes for dumped tables
+-- 限制导出的表
 --
 
 --
--- Indexes for table `airlines`
---
-ALTER TABLE `airlines`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `airports`
---
-ALTER TABLE `airports`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ata`
---
-ALTER TABLE `ata`
-  ADD KEY `fk_airlineid` (`airlineid`),
-  ADD KEY `fk_airport_id` (`airportid`),
-  ADD KEY `fk_terminalid` (`terminalid`);
-
---
--- Indexes for table `carrentalcompany`
---
-ALTER TABLE `carrentalcompany`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `members`
---
-ALTER TABLE `members`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `rentals`
---
-ALTER TABLE `rentals`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_companyid` (`companyid`),
-  ADD KEY `fk_airportid` (`airportid`);
-
---
--- Indexes for table `reviews`
---
-ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `shopping`
---
-ALTER TABLE `shopping`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_terminal_id` (`terminal_id`);
-
---
--- Indexes for table `terminal`
---
-ALTER TABLE `terminal`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `airports`
---
-ALTER TABLE `airports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `carrentalcompany`
---
-ALTER TABLE `carrentalcompany`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `members`
---
-ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `rentals`
---
-ALTER TABLE `rentals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `reviews`
---
-ALTER TABLE `reviews`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT for table `shopping`
---
-ALTER TABLE `shopping`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `terminal`
---
-ALTER TABLE `terminal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `ata`
+-- 限制表 `ata`
 --
 ALTER TABLE `ata`
   ADD CONSTRAINT `fk_airlineid` FOREIGN KEY (`airlineid`) REFERENCES `airlines` (`id`),
@@ -499,14 +409,14 @@ ALTER TABLE `ata`
   ADD CONSTRAINT `fk_terminalid` FOREIGN KEY (`terminalid`) REFERENCES `terminal` (`id`);
 
 --
--- Constraints for table `rentals`
+-- 限制表 `rentals`
 --
 ALTER TABLE `rentals`
   ADD CONSTRAINT `fk_airportid` FOREIGN KEY (`airportid`) REFERENCES `airports` (`id`),
   ADD CONSTRAINT `fk_companyid` FOREIGN KEY (`companyid`) REFERENCES `carrentalcompany` (`ID`);
 
 --
--- Constraints for table `shopping`
+-- 限制表 `shopping`
 --
 ALTER TABLE `shopping`
   ADD CONSTRAINT `fk_terminal_id` FOREIGN KEY (`terminal_id`) REFERENCES `terminal` (`id`);
