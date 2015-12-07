@@ -59,7 +59,7 @@ class Flight
 
         if(!($stmt = $this->db->prepare_statement("UPDATE `flights` SET `flight_number`=?,`airline_name`=?,`destination`=?, `departure_time`=?,`arrival_time`=?, `status`=?, `origin`=? WHERE `flight_number`=?")))
             echo "Prepare failed: (" . $this->db->e . ") " . $this->db->error;
-        if(!($stmt->bind_param("sssssi", $flight_number, $airline_name, $destination, $departure_time, $arrival_time,$status,$origin,$this->id)))
+        if(!($stmt->bind_param("ssssssss", $flight_number, $airline_name, $destination, $departure_time, $arrival_time,$status,$origin,$this->flight_number)))
             echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 
         //INSERT, POPULATE THIS OBJECT AND RETURN THE ID OF
@@ -75,7 +75,7 @@ class Flight
         }
     }
     public function delete(){
-        if($this->id>0) {
+        if($this->flight_number!="") {
             $stmt = $this->db->prepare_statement("DELETE FROM `flights` WHERE `flight_number`=?");
             $stmt->bind_param("i", $this->flight_number);
             return $stmt->execute();
