@@ -149,18 +149,18 @@ INSERT INTO `flights` (`flight_number`, `airline_name`, `destination`, `departur
 ('DL 4072', 'Delta Air Lines', 'Toronto', '2015-11-25 20:29:54', '2015-11-25 22:30:14', 'en-route', 'JFK'),
 ('AA 104', 'American Airlines', 'Miami', '2015-11-25 21:33:37', '2015-11-25 23:54:34', 'delayed', 'JFK'),
 ('AA 7972', 'ELAL', 'JFK', '2015-11-25 12:37:11', '2015-11-25 18:37:21', 'en-route', 'SanFrancisco'),
-('DL 4072', 'American Eagle', 'HGB', '2015-11-25 20:29:54', '2015-11-25 22:30:14', 'en-route', 'JFK'),
-('AA 104', 'American Airlines', 'Miami', '2015-11-25 21:33:37', '2015-11-25 23:54:34', 'delayed', 'JFK'),
-('AA 7972', 'ELAL', 'Honolulu', '2015-11-25 12:37:11', '2015-11-25 18:37:21', 'en-route', 'SanFrancisco'),
-('DL 4072', 'Delta Air Lines', 'HGB', '2015-11-26 20:29:54', '2015-11-26 22:30:14', 'en-route', 'Honolulu'),
-('AA 104', 'American Eagle', 'Miami', '2015-11-26 21:33:37', '2015-11-26 23:54:34', 'delayed', 'JFK'),
-('AA 7972', 'American Airlines', 'Honolulu', '2015-11-27 12:37:11', '2015-11-27 18:37:21', 'en-route', 'SanFrancisco'),
-('DL 4072', 'American Eagle', 'Toronto', '2015-11-27 20:29:54', '2015-11-27 22:30:14', 'en-route', 'JFK'),
-('AA 104', 'American Airlines', 'Miami', '2015-11-28 21:33:37', '2015-11-28 23:54:34', 'delayed', 'JFK'),
-('AA 7972', 'American Eagle', 'JFK', '2015-11-30 12:37:11', '2015-11-30 18:37:21', 'en-route', 'SanFrancisco'),
-('DL 4072', 'Delta Air Lines', 'Boston', '2015-11-30 20:29:54', '2015-11-30 22:30:14', 'en-route', 'Honolulu'),
-('AA 104', 'American Airlines', 'Miami', '2015-11-30 21:33:37', '2015-11-30 23:54:34', 'delayed', 'JFK'),
-('AA 7972', 'Arik Air', 'HGB', '2015-11-30 12:37:11', '2015-11-30 18:37:21', 'en-route', 'SanFrancisco');
+('DL 1232', 'American Eagle', 'HGB', '2015-11-25 20:29:54', '2015-11-25 22:30:14', 'en-route', 'JFK'),
+('QA 1114', 'American Airlines', 'Miami', '2015-11-25 21:33:37', '2015-11-25 23:54:34', 'delayed', 'JFK'),
+('DA 7932', 'ELAL', 'Honolulu', '2015-11-25 12:37:11', '2015-11-25 18:37:21', 'en-route', 'SanFrancisco'),
+('FR 4472', 'Delta Air Lines', 'HGB', '2015-11-26 20:29:54', '2015-11-26 22:30:14', 'en-route', 'Honolulu'),
+('JK 144', 'American Eagle', 'Miami', '2015-11-26 21:33:37', '2015-11-26 23:54:34', 'delayed', 'JFK'),
+('PO 122', 'American Airlines', 'Honolulu', '2015-11-27 12:37:11', '2015-11-27 18:37:21', 'en-route', 'SanFrancisco'),
+('EW 432', 'American Eagle', 'Toronto', '2015-11-27 20:29:54', '2015-11-27 22:30:14', 'en-route', 'JFK'),
+('JS 104', 'American Airlines', 'Miami', '2015-11-28 21:33:37', '2015-11-28 23:54:34', 'delayed', 'JFK'),
+('SL 732', 'American Eagle', 'JFK', '2015-11-30 12:37:11', '2015-11-30 18:37:21', 'en-route', 'SanFrancisco'),
+('EW 4822', 'Delta Air Lines', 'Boston', '2015-11-30 20:29:54', '2015-11-30 22:30:14', 'en-route', 'Honolulu'),
+('SI 109', 'American Airlines', 'Miami', '2015-11-30 21:33:37', '2015-11-30 23:54:34', 'delayed', 'JFK'),
+('OU 7172', 'Arik Air', 'HGB', '2015-11-30 12:37:11', '2015-11-30 18:37:21', 'en-route', 'SanFrancisco');
 
 
 
@@ -296,16 +296,16 @@ INSERT INTO `shopping` (`id`, `name`, `security_type`, `location`, `terminal_id`
 (3, 'King Schichuan', 'post-check', '23# terminal 1', 15, 'HGB'),
 (4, 'McDonald''s', 'pre-check', '11# terminal 5', 25, 'Miami'),
 (5, 'Burger King', 'pre-check', '13# terminal 2', 8, 'SanFrancisco'),
-(6, 'King Schichuan', 'post-check', '23# terminal 1', 8, 'SanFrancisco')
+(6, 'King Schichuan', 'post-check', '23# terminal 1', 8, 'SanFrancisco'),
 (7, 'McDonald''s', 'pre-check', '11# terminal 1', 9, 'SanFrancisco'),
 (8, 'Burger King', 'pre-check', '13# terminal 2', 9, 'SanFrancisco'),
-(9, 'King Schichuan', 'post-check', '23# terminal 1', 22, 'Miami')
+(9, 'King Schichuan', 'post-check', '23# terminal 1', 22, 'Miami'),
 (10, 'McDonald''s', 'pre-check', '11# terminal 1', 22, 'Miami'),
 (11, 'Burger King', 'pre-check', '13# terminal 2', 23, 'Miami'),
-(12, 'King Schichuan', 'post-check', '23# terminal 3', 24, 'Miami')
+(12, 'King Schichuan', 'post-check', '23# terminal 3', 24, 'Miami'),
 (13, 'McDonald''s', 'pre-check', '11# terminal 1', 28, 'Honolulu'),
 (14, 'Burger King', 'pre-check', '13# terminal 2', 29, 'Honolulu'),
-(15, 'King Schichuan', 'post-check', '23# terminal 1', 28, 'Honolulu')
+(15, 'King Schichuan', 'post-check', '23# terminal 1', 28, 'Honolulu'),
 (16, 'McDonald''s', 'pre-check', '11# terminal 3', 30, 'Honolulu'),
 (17, 'Burger King', 'pre-check', '13# terminal 2', 2, 'JFK'),
 (18, 'King Schichuan', 'post-check', '23# terminal 1', 3, 'JFK');
@@ -353,7 +353,7 @@ INSERT INTO `terminal` (`id`, `name`, `airports_id`) VALUES
 (24, 'Terminal 4', 4),
 (25, 'Terminal 5', 4),
 (26, 'Terminal 7', 4),
-(27, 'Terminal 8', 4);
+(27, 'Terminal 8', 4),
 (28, 'Terminal 1', 5),
 (29, 'Terminal 2', 5),
 (30, 'Terminal 3', 5),
