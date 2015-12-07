@@ -4,21 +4,40 @@
  */
 
 .header-wrap {
- margin: 20px 20px 40px 20px;
+ margin: 0;
 }
 .header {
  width: 100%;
+ color: #fff;
+}
+.header .banner {
+  background: #5B9DDE;
+  height: 150px;
+  border-bottom: 4px solid #fff;
+  overflow: hidden;
+}
+.header .banner .title {
+  font-size: 52px;
+  font-weight: bold;
+  position: absolute;
+  top: 30%;
+  left: 40px;
+}
+.header .banner .logo {
+  position: absolute;
+  right: 40px;
+  height: 80%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .header .nav-main {
  background: #5B9DDE;
- border: 1px solid #000;
 }
 .header .nav-main ul {
  list-style: none;
  display: flex;
 }
 .header .nav-main ul li {
- color: #fff;
  flex: auto;
  font-size: 24px;
  text-align: center;

@@ -20,8 +20,8 @@
       <div class="content-wrap">
         <div class="content">
           <?php if (login_check($mysqli) == true) : ?>
-              <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
-              <p>
+              <p>Welcome <span style="color: #5B9DDE; font-weight: bold;"><?php echo htmlentities($_SESSION['username']); ?></span>!</p>
+              <p class="notice">
                   This is an example protected page.  To access this page, users
                   must be logged in.  At some stage, we'll also check the role of
                   the user, so pages will be able to determine the type of user
@@ -126,8 +126,8 @@
               </article>
 
           <?php else : ?>
-              <p>
-                  <span class="error">You are not authorized to access this page.</span> Please <a href="index.php">login</a>.
+              <p class="warning">
+                  You are not authorized to access this page. Please <a href="index.php">login</a>.
               </p>
           <?php endif; ?>
           <script type = "text/javascript" src="checker.js"></script>

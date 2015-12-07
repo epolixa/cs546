@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  font-family: sans-serif;
-  background: #fff url('../images/airplane-background.jpg') center no-repeat;
+  font-family: 'Roboto', sans-serif;
+  background: #fff url('../images/bg-clouds.jpg') center no-repeat;
   background-size: cover;
 }
 
@@ -25,14 +25,54 @@ a:hover {
   cursor: pointer;
 }
 
-.container {}
+.notice {
+  background: yellow;
+  border: 2px solid orange;
+  padding: 8px 8px 8px 24px;
+}
+.notice:before {
+  content: '!';
+  font-weight: bold;
+  font-size: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: orange;
+  position: absolute;
+  left: 4px;
+}
+
+.warning {
+  background: pink;
+  border: 2px solid red;
+  padding: 8px 8px 8px 24px;
+}
+.warning:before {
+  content: 'X';
+  font-weight: bold;
+  font-size: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: red;
+  position: absolute;
+  left: 4px;
+}
+
+.container {
+  max-width: 60em;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 0 8px #333;
+}
 
 .content-wrap {
-  margin: 0 20px 40px 20px;
+  padding: 40px 0 0 0;
+  margin: 0 20px 0 20px;
 }
 .content {
-  width: 100%;
+  max-width: 100%;
   display: block;
+  min-height: 47.5em;
+  margin-bottom: 20px;
 }
 .content-left {
   width: 100%;
@@ -59,19 +99,29 @@ a:hover {
 .content-right {
   width: 100%;
   display: block;
+  min-height: 47.5em;
+  margin-bottom: 20px;
 }
 
-@media(min-width: 750px)
+@media(min-width: 47.5em)
 {
   .content-left {
     width: 20%;
     vertical-align: top;
     display: inline-block;
     margin-right: 20px;
+    min-height: 47.5em;
   }
   .content-right {
     width: calc(80% - 25px);
     display: inline-block;
     vertical-align: top;
+  }
+}
+
+@media(min-width: 60em)
+{
+  .container {
+    margin: 20px auto 20px auto;
   }
 }
