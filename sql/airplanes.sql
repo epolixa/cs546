@@ -42,7 +42,13 @@ INSERT INTO `airlines` (`id`, `name`, `contact`) VALUES
 (3, 'ELAL', 'Telephone:1-800-223-6700'),
 (4, 'Lufthansa', 'Telephone:1-800-645-3880'),
 (5, 'British Airways', 'Telephone:1 (800) 247-9297'),
-(6, 'Australian Airlines', 'Telephone: 1800-843-0002');
+(6, 'Australian Airlines', 'Telephone: 1800-843-0002'),
+(7, 'Air Canada', 'Telephone:1 (800) 867-1297'),
+(8, 'Air China', 'Telephone:1 (800) 437-9597'),
+(9, 'Alitalia', 'Telephone:1 (800) 541-4327'),
+(10, 'American Eagle', 'Telephone:1 (800) 936-3297'),
+(11, 'Arik Air', 'Telephone:1 (800) 432-9731'),
+(12, 'Azerbaijan', 'Telephone:1 (800) 947-0937');
 
 -- --------------------------------------------------------
 
@@ -109,7 +115,15 @@ INSERT INTO `carrentalcompany` (`ID`, `Name`) VALUES
 (1, 'Hertz'),
 (2, 'Avis'),
 (3, 'Enterprise'),
-(4, 'Budget');
+(4, 'Budget'),
+(5, 'Alamo'),
+(6, 'Dollar'),
+(7, 'Thrifty'),
+(8, 'National'),
+(9, 'Payless'),
+(10, 'Fox'),
+(11, 'Ace'),
+(12, 'Sixt');
 
 -- --------------------------------------------------------
 
@@ -134,7 +148,23 @@ CREATE TABLE IF NOT EXISTS `flights` (
 INSERT INTO `flights` (`flight_number`, `airline_name`, `destination`, `departure_time`, `arrival_time`, `status`, `origin`) VALUES
 ('DL 4072', 'Delta Air Lines', 'Toronto', '2015-11-25 20:29:54', '2015-11-25 22:30:14', 'en-route', 'JFK'),
 ('AA 104', 'American Airlines', 'Miami', '2015-11-25 21:33:37', '2015-11-25 23:54:34', 'delayed', 'JFK'),
-('AA 7972', 'American Airlines', 'JFK', '2015-11-25 12:37:11', '2015-11-25 18:37:21', 'en-route', 'SanFrancisco');
+('AA 7972', 'ELAL', 'JFK', '2015-11-25 12:37:11', '2015-11-25 18:37:21', 'en-route', 'SanFrancisco'),
+('DL 4072', 'American Eagle', 'HGB', '2015-11-25 20:29:54', '2015-11-25 22:30:14', 'en-route', 'JFK'),
+('AA 104', 'American Airlines', 'Miami', '2015-11-25 21:33:37', '2015-11-25 23:54:34', 'delayed', 'JFK'),
+('AA 7972', 'ELAL', 'Honolulu', '2015-11-25 12:37:11', '2015-11-25 18:37:21', 'en-route', 'SanFrancisco'),
+('DL 4072', 'Delta Air Lines', 'HGB', '2015-11-26 20:29:54', '2015-11-26 22:30:14', 'en-route', 'Honolulu'),
+('AA 104', 'American Eagle', 'Miami', '2015-11-26 21:33:37', '2015-11-26 23:54:34', 'delayed', 'JFK'),
+('AA 7972', 'American Airlines', 'Honolulu', '2015-11-27 12:37:11', '2015-11-27 18:37:21', 'en-route', 'SanFrancisco'),
+('DL 4072', 'American Eagle', 'Toronto', '2015-11-27 20:29:54', '2015-11-27 22:30:14', 'en-route', 'JFK'),
+('AA 104', 'American Airlines', 'Miami', '2015-11-28 21:33:37', '2015-11-28 23:54:34', 'delayed', 'JFK'),
+('AA 7972', 'American Eagle', 'JFK', '2015-11-30 12:37:11', '2015-11-30 18:37:21', 'en-route', 'SanFrancisco'),
+('DL 4072', 'Delta Air Lines', 'Boston', '2015-11-30 20:29:54', '2015-11-30 22:30:14', 'en-route', 'Honolulu'),
+('AA 104', 'American Airlines', 'Miami', '2015-11-30 21:33:37', '2015-11-30 23:54:34', 'delayed', 'JFK'),
+('AA 7972', 'Arik Air', 'HGB', '2015-11-30 12:37:11', '2015-11-30 18:37:21', 'en-route', 'SanFrancisco');
+
+
+
+
 
 -- --------------------------------------------------------
 
@@ -193,7 +223,17 @@ CREATE TABLE IF NOT EXISTS `rentals` (
 
 INSERT INTO `rentals` (`companyid`, `airportid`, `carbrand`, `price`, `rank`, `quantity`, `startdate`, `enddate`, `id`) VALUES
 (2, 2, 'Toyota Camry', 60, 8, 3, '2015-12-08', '2015-12-16', 1),
-(3, 2, 'Mercedes-Benz ', 100, 9, 2, '2015-12-15', '2015-12-30', 2);
+(3, 2, 'Mercedes-Benz ', 100, 9, 2, '2015-12-15', '2015-12-30', 2),
+(9, 1, 'Mercedes-Benz ', 120, 9, 3, '2015-12-15', '2015-12-30', 3),
+(7, 1, 'Toyota Camry', 50, 7, 3, '2015-12-08', '2015-12-16', 4),
+(5, 1, 'Mercedes-Benz ', 100, 9, 2, '2015-12-15', '2015-12-30', 5),
+(8, 3, 'Mercedes-Benz ', 100, 9, 2, '2015-12-15', '2015-12-30', 6),
+(1, 3, 'Toyota Camry', 60, 8, 3, '2015-12-08', '2015-12-16', 7),
+(1, 5, 'Mercedes-Benz ', 200, 9, 4, '2015-12-15', '2015-12-30', 8),
+(4, 5, 'Mercedes-Benz ', 100, 8, 2, '2015-12-15', '2015-12-30', 9),
+(6, 4, 'Toyota Camry', 70, 8, 3, '2015-12-08', '2015-12-16', 10),
+(6, 4, 'Mercedes-Benz ', 130, 9, 2, '2015-12-15', '2015-12-30', 11),
+(9, 1, 'Mercedes-Benz ', 150, 9, 2, '2015-12-15', '2015-12-30', 12);
 
 -- --------------------------------------------------------
 
@@ -252,8 +292,23 @@ CREATE TABLE IF NOT EXISTS `shopping` (
 
 INSERT INTO `shopping` (`id`, `name`, `security_type`, `location`, `terminal_id`, `airport`) VALUES
 (1, 'McDonald''s', 'pre-check', '11# terminal 1', 1, 'JFK'),
-(2, 'Burger King', 'pre-check', '13# terminal 2', 2, 'JFK'),
-(3, 'King Schichuan', 'post-check', '23# terminal 1', 1, 'JFK');
+(2, 'Burger King', 'pre-check', '13# terminal 2', 14, 'HGB'),
+(3, 'King Schichuan', 'post-check', '23# terminal 1', 15, 'HGB'),
+(4, 'McDonald''s', 'pre-check', '11# terminal 5', 25, 'Miami'),
+(5, 'Burger King', 'pre-check', '13# terminal 2', 8, 'SanFrancisco'),
+(6, 'King Schichuan', 'post-check', '23# terminal 1', 8, 'SanFrancisco')
+(7, 'McDonald''s', 'pre-check', '11# terminal 1', 9, 'SanFrancisco'),
+(8, 'Burger King', 'pre-check', '13# terminal 2', 9, 'SanFrancisco'),
+(9, 'King Schichuan', 'post-check', '23# terminal 1', 22, 'Miami')
+(10, 'McDonald''s', 'pre-check', '11# terminal 1', 22, 'Miami'),
+(11, 'Burger King', 'pre-check', '13# terminal 2', 23, 'Miami'),
+(12, 'King Schichuan', 'post-check', '23# terminal 3', 24, 'Miami')
+(13, 'McDonald''s', 'pre-check', '11# terminal 1', 28, 'Honolulu'),
+(14, 'Burger King', 'pre-check', '13# terminal 2', 29, 'Honolulu'),
+(15, 'King Schichuan', 'post-check', '23# terminal 1', 28, 'Honolulu')
+(16, 'McDonald''s', 'pre-check', '11# terminal 3', 30, 'Honolulu'),
+(17, 'Burger King', 'pre-check', '13# terminal 2', 2, 'JFK'),
+(18, 'King Schichuan', 'post-check', '23# terminal 1', 3, 'JFK');
 
 -- --------------------------------------------------------
 
@@ -278,7 +333,34 @@ INSERT INTO `terminal` (`id`, `name`, `airports_id`) VALUES
 (4, 'Terminal 4', 1),
 (5, 'Terminal 5', 1),
 (6, 'Terminal 7', 1),
-(7, 'Terminal 8', 1);
+(7, 'Terminal 8', 1),
+(8, 'Terminal A', 2),
+(9, 'Terminal B', 2),
+(10, 'Terminal C', 2),
+(11, 'Terminal D', 2),
+(12, 'Terminal E', 2),
+(13, 'Terminal F', 2),
+(14, 'Terminal 1', 3),
+(15, 'Terminal 2', 3),
+(16, 'Terminal 3', 3),
+(17, 'Terminal 4', 3),
+(18, 'Terminal 5', 3),
+(19, 'Terminal 7', 3),
+(20, 'Terminal 8', 3),
+(21, 'Terminal 1', 4),
+(22, 'Terminal 2', 4),
+(23, 'Terminal 3', 4),
+(24, 'Terminal 4', 4),
+(25, 'Terminal 5', 4),
+(26, 'Terminal 7', 4),
+(27, 'Terminal 8', 4);
+(28, 'Terminal 1', 5),
+(29, 'Terminal 2', 5),
+(30, 'Terminal 3', 5),
+(31, 'Terminal 4', 5),
+(32, 'Terminal 5', 5),
+(33, 'Terminal 7', 5),
+(34, 'Terminal 8', 5);
 
 --
 -- Indexes for dumped tables
