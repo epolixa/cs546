@@ -1,4 +1,4 @@
-<?php require_once('includes/Common.php') ?>
+<?php require_once('../includes/Common.php') ?>
 
 <!DOCTYPE html>
 
