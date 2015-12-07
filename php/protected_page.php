@@ -48,7 +48,11 @@
 
                  if(isset($_SESSION["role"]))
                   if($_SESSION["role"] == 1) {
-                    echo "<p> You are logged as administrator.<br> To access reviews management click <a href= 'reviewsAdmin.php'> here.</a><br />To access users management click <a href= 'adminUsers.php'> here.</a> </p> ";
+                    echo "<br />";
+                    echo "<p>You are logged as administrator.</p>";
+                    echo "<p>To access reviews management click <a href= 'reviewsAdmin.php'> here.</a></p>";
+                    echo "<p>To access users management click <a href= 'adminUsers.php'> here.</a></p>";
+                    echo "<p>To access flights management click <a href= 'flightsAdmin.php'> here.</a></p>";
                   }
                  if (($existing != false) && ($existing != null) && ($_SESSION["role"] == 0))
                   if(count($reviewEntries)!=0){

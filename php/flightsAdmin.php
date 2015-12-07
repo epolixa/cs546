@@ -1,25 +1,25 @@
 <?php
 
-        require_once 'data.php';
-        $data = new reviewsFormation();
+        require_once '../includes/Flight.php';
+        $flightDAO = new Flight();
         
-        $flights = $data->getFlights();
+        $flights = $flightDAO->getFlight();
 
         if(count($flights)!=0){
-          foreach ($flights as $flgt){
-        echo '<form id = "flights_id" action = "flightStatus.php" method = "POST">';       
-        echo 'Airline:<input type = "text" name = "airline"  id = "airline_id"  value = "'.$flgt["airline_name"].'" style = "width: 350px"/> <br>';
-        echo 'Flight Number:<input type = "text" name = "flight_number"  id = "flight_id" value = "'.$flgt["flight_number"].'"  style = "width: 350px" /> <br>';
-        echo 'Origin:<input type = "text" name = "origin"  id = "origin_id" value = "'.$flgt["origin"].'"  style = "width: 350px" /> <br>';
-        echo 'Destination:<input type = "text" name = "destination"  id = "destination_id" value = "'.$flgt["destination"].'"  style = "width: 350px" /> <br>';
-        echo 'Arrival Time:<input type = "text" name = "arrival_time"  id = "arrival_time_id" value = "'.$flgt["arrival_time"].'"  style = "width: 350px" /> <br>';
-        echo 'Departure Time:<input type = "text" name = "departure_time"  id = "departure_time_id" value = "'.$flgt["departure_time"].'"  style = "width: 350px" /> <br>';
-        echo 'Status:<input type = "text" name = "status_time"  id = "status_id" value = "'.$flgt["status"].'"  style = "width: 350px" /> <br>';
-        echo '<input type="submit" value="Update" onclick = "return check();">';
-        echo '</form><br><br>' ;
-        }
+            foreach ($flights as $flgt){
+          echo '<form id = "flights_id" action = "flightStatus.php" method = "POST">';       
+          echo 'Airline:<input type = "text" name = "airline"  id = "airline_id"  value = "'.$flgt["airline_name"].'" style = "width: 350px"/> <br>';
+          echo 'Flight Number:<input type = "text" name = "flight_number"  id = "flight_id" value = "'.$flgt["flight_number"].'"  style = "width: 350px" /> <br>';
+          echo 'Origin:<input type = "text" name = "origin"  id = "origin_id" value = "'.$flgt["origin"].'"  style = "width: 350px" /> <br>';
+          echo 'Destination:<input type = "text" name = "destination"  id = "destination_id" value = "'.$flgt["destination"].'"  style = "width: 350px" /> <br>';
+          echo 'Arrival Time:<input type = "text" name = "arrival_time"  id = "arrival_time_id" value = "'.$flgt["arrival_time"].'"  style = "width: 350px" /> <br>';
+          echo 'Departure Time:<input type = "text" name = "departure_time"  id = "departure_time_id" value = "'.$flgt["departure_time"].'"  style = "width: 350px" /> <br>';
+          echo 'Status:<input type = "text" name = "status_time"  id = "status_id" value = "'.$flgt["status"].'"  style = "width: 350px" /> <br>';
+          echo '<input type="submit" value="Update" onclick = "return check();">';
+          echo '</form><br><br>' ;
+          }
 
-      }
+        }
         /*session_start(); 
         echo '<form id = "back_login" action = "protected_page.php" method = "POST">';         
         echo '<input type = "submit" value="Back to Account">';
