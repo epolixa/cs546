@@ -54,7 +54,7 @@
               echo '<input type = "submit" value="Back to Account">';
               echo '</form>';
 
-              echo '<form id = "sign_off" action = "includes/logout.php" method = "POST">';
+              echo '<form id = "sign_off" action = "logout.php" method = "POST">';
               echo '<input type = "submit" value="Logout">';
               echo '</form>';
             ?>

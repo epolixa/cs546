@@ -37,6 +37,24 @@ class Common{
         return false;
     }
 
+    public static function selectAirlines($whereField="",$whereOperator="",$whereValue=""){
+        $db =  new DatabaseConnection();
+        $sql = "SELECT * FROM `airlines`";
+        if($whereField!="" && in_array($whereOperator,array(">","<","<=",">=","=","<>")) && $whereValue!="")
+            $sql .=" WHERE ".$whereField."". $whereOperator."'".$whereValue."'";
+        $stmt = $db->send_sql($sql);
+        if($stmt->num_rows>0){
+            $count = 0;
+            while($row = $stmt->fetch_array(MYSQLI_ASSOC)){
+                $ret[$count] = new Flight($row['id']);
+                $count++;
+            }
+            $stmt->close();
+            return $ret;
+        }
+        return false;
+    }
+
     public static function selectShops($whereField="",$whereOperator="",$whereValue=""){
         $db =  new DatabaseConnection();
         $sql = "SELECT `id` FROM `shopping`";
