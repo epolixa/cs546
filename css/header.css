@@ -17,8 +17,6 @@
   overflow: hidden;
 }
 .header .banner .title {
-  font-size: 52px;
-  font-weight: bold;
   position: absolute;
   top: 30%;
   left: 40px;

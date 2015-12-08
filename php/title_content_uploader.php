@@ -21,17 +21,17 @@
             </div>
 
             <article>
-            <form id = "title_content_upload" action = "preview.php" method = "POST">
-             Airport:<select required name = "airport_id">
+            <form class="review review-editable" id = "title_content_upload" action = "preview.php" method = "POST">
+             Airport: <select required name = "airport_id">
                   <option value = 1> JFK International Airport </option>
                   <option value = 2> San Francisco International Airport </option>
                   <option value = 3> Houston George Bush Intercontinental Airport </option>
                   <option value = 4> Miami International Airport </option>
                   <option value = 5> Honolulu International Airport </option>
-                  </select><br>
-             Title:<input type = "text" name = "title" placeholder = "Type title here..." id = "basic_title_query" /> <br>
-             Content:<input type = "text" name = "content" placeholder = "Type content here..." id = "basic_content_query"  style = "width: 350px" /> <br>
-             Rank:<select required name = "rank">
+                </select><br><br>
+             Title: <input type = "text" name = "title" placeholder = "Type title here..." id = "basic_title_query" /> <br>
+             Content: <textarea class="review-content" name="content" id="basic_content_query">Type content here...</textarea><br><br>
+             Rank: <select required name = "rank">
                   <option value = 1> 1 </option>
                   <option value = 2> 2 </option>
                   <option value = 3> 3 </option>
@@ -42,23 +42,11 @@
                   <option value = 8> 8 </option>
                   <option value = 9> 9 </option>
                   <option value = 10> 10 </option>
-                  </select><br>
+                </select><br><br>
 
-             <input type="submit" value="Continue"><br>
+             <input class="review-submit" type="submit" value="See Preview"><br>
             </form>
             </article>
-
-            <article>
-            <?php
-              echo '<form id = "back" action = "protected_page.php" method = "POST">';
-              echo '<input type = "submit" value="Back to Account">';
-              echo '</form>';
-
-              echo '<form id = "sign_off" action = "logout.php" method = "POST">';
-              echo '<input type = "submit" value="Logout">';
-              echo '</form>';
-            ?>
-           </article>
         </div>
       </div>
 
