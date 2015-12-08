@@ -5,6 +5,38 @@ require_once'../includes/Flight.php';
 require_once'../includes/Shop.php';
 
 class Common{
+    public static function flightsAdminForm($step,$name,$num,$origin,$dest,$arr,$dep,$status){
+        echo '<form id = "flights_id" action = "flightsAdmin.php?step='.$step.'Flight" method = "POST">';
+        echo 'Airline:<select required>';
+            $airlines = Common::selectAirlinesForForm();
+              if($airlines && count($airlines)>0) {
+                  foreach ($airlines as $airline) {
+                      echo '<option value='.$airline['name'].'>'.$airline['name'].'</option>';
+                  }
+              }
+        echo"</select><br>";
+        echo 'Flight Number:<input type = "text" name = "flight_number"  id = "flight_id" value = "' . $num . '"  style = "width: 350px" required /> <br>';
+        echo 'Origin:<select name="origin" required>';
+        $airports = Common::selectAirports();
+        if($airports){
+            foreach($airports as $airport){
+                echo'<option value="'.$airport->name().'">'.$airport->name().'</option>';
+            }
+        }
+        echo"</select><br>";
+        echo 'Destination: <select name="destination" required>';
+        if($airports){
+            foreach($airports as $airport){
+                echo'<option value="'.$airport->name().'">'.$airport->name().'</option>';
+            }
+        }
+        echo"</select><br>";
+        echo 'Arrival Time:<input type = "datetime" name = "arrival_time"  id = "arrival_time_id" value = "' . $arr . '"  style = "width: 350px"  required/> <br>';
+        echo 'Departure Time:<input type = "datetime" name = "departure_time"  id = "departure_time_id" value = "' . $dep . '"  style = "width: 350px"  required /> <br>';
+        echo 'Status:<input type = "text" name = "status"  id = "status_id" value = "' . $status . '"  style = "width: 350px"  required/> <br>';
+        echo '<input type="submit" value="'.ucfirst($step).'">';
+        echo '</form><br><br>';
+    }
     public static function selectAirports(){
         $db =  new DatabaseConnection();
         $stmt = $db->send_sql("SELECT id FROM `airports`");
@@ -59,6 +91,23 @@ class Common{
         return false;
     }
 
+    public static function selectAirlinesForForm(){
+        $db =  new DatabaseConnection();
+        $sql = "SELECT DISTINCT(`name`) FROM `airlines` ORDER BY `name`";
+        $stmt = $db->send_sql($sql);
+        // die($sql);
+        if($stmt->num_rows>0){
+            $count = 0;
+            while($row = $stmt->fetch_array(MYSQLI_ASSOC)){
+                $ret[$count] = $row;
+                $count++;
+            }
+            $stmt->close();
+            return $ret;
+        }
+        return false;
+    }
+
     public static function selectShops($whereField="",$whereOperator="",$whereValue=""){
         $db =  new DatabaseConnection();
         $sql = "SELECT `id` FROM `shopping`";
@@ -89,7 +138,7 @@ class Common{
         echo'</ul>';
     }
 
-    public static function error($msg, $type="error"){
+    public static function error($msg, $type="warning"){
         //possible types are error, info, warning, success
         echo"<div class=".$type.">".$msg."</div>";
         echo" </div>

@@ -7,6 +7,8 @@
   require_once('../includes/Airport.php');
   $airportID = filter_input(INPUT_GET,'airport',FILTER_SANITIZE_NUMBER_INT);
   $airport = new Airport($airportID);
+if(!$airport->exists())
+    Common::error("Error: Airport could not be found!");
 ?>
 
 <!DOCTYPE html>

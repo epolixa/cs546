@@ -11,6 +11,9 @@ class Airport
 {
     private $db, $id=0, $name="", $history="", $parking="", $faq="", $contact="";
 
+    public function exists(){
+        return $this->id > 0;
+    }
     public function create($name, $history, $parking, $faq, $contact)
     {
         //THIS FUNCCTION WILL TAKE IN THE DATA PASSED THROUGH AND CREATE
@@ -133,5 +136,4 @@ class Airport
         if(intval($id) && $id>0)
             $this->getAirport($id);
     }
-
 }
