@@ -11,7 +11,10 @@ class Common{
             $airlines = Common::selectAirlinesForForm();
               if($airlines && count($airlines)>0) {
                   foreach ($airlines as $airline) {
-                      echo '<option value='.$airline['name'].'>'.$airline['name'].'</option>';
+                      echo '<option value="'.$airline['name'].'"';
+                      if($airline['name']==$name)
+                        echo" selected=\"selected\"";
+                      echo'>'.$airline['name'].'</option>';
                   }
               }
         echo"</select><br>";
@@ -20,14 +23,20 @@ class Common{
         $airports = Common::selectAirports();
         if($airports){
             foreach($airports as $airport){
-                echo'<option value="'.$airport->name().'">'.$airport->name().'</option>';
+                echo'<option value="'.$airport->name().'"';
+                if($airport->name()==$origin)
+                    echo" selected=\"selected\"";
+                echo'>'.$airport->name().'</option>';
             }
         }
         echo"</select><br>";
         echo 'Destination: <select name="destination" required>';
         if($airports){
             foreach($airports as $airport){
-                echo'<option value="'.$airport->name().'">'.$airport->name().'</option>';
+                echo'<option value="'.$airport->name().'"';
+                if($airport->name()==$dest)
+                    echo" selected=\"selected\"";
+                echo'>'.$airport->name().'</option>';
             }
         }
         echo"</select><br>";

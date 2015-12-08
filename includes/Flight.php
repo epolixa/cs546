@@ -23,6 +23,9 @@ class Flight
         $status = filter_var($status, FILTER_SANITIZE_STRING);
         $origin = filter_var($origin, FILTER_SANITIZE_STRING);
 
+        if($flight_number=="" || $airline_name=="" || $destination=="" || $departure_time=="" || $arrival_time=="" || $status=="" || $origin=="" || $origin==$destination)
+            return false;
+
         //PREPARE INSERT
         if(!($stmt = $this->db->prepare_statement("INSERT INTO `flights`(`flight_number`,`airline_name`,`destination`, `departure_time`, `arrival_time`, `status`, `origin`) VALUES(?,?,?,?,?,?,?)")))
             echo "Prepare failed: (" . $this->db->errno . ") " . $this->db->error;
@@ -56,7 +59,9 @@ class Flight
         $arrival_time = filter_var($arrival_time, FILTER_SANITIZE_STRING);
         $status = filter_var($status, FILTER_SANITIZE_STRING);
         $origin = filter_var($origin, FILTER_SANITIZE_STRING);
-
+        if($flight_number=="" || $airline_name=="" || $destination=="" || $departure_time=="" || $arrival_time=="" || $status=="" || $origin=="" || $origin==$destination)
+            return false;
+        
         if(!($stmt = $this->db->prepare_statement("UPDATE `flights` SET `flight_number`=?,`airline_name`=?,`destination`=?, `departure_time`=?,`arrival_time`=?, `status`=?, `origin`=? WHERE `flight_number`=?")))
             echo "Prepare failed: (" . $this->db->e . ") " . $this->db->error;
         if(!($stmt->bind_param("ssssssss", $flight_number, $airline_name, $destination, $departure_time, $arrival_time,$status,$origin,$this->flight_number)))
