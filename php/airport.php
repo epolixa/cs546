@@ -32,7 +32,7 @@
                         Common::error("Error: Airport could not be found!");
                     ?>
                     <section class="airport-home">
-                  <h2><?php echo $airport->name(); ?></h2><br>
+                  <h2><?php echo $airport->name(); ?> International Airport</h2><br>
             <?php echo '<img src="../images/airport-' . $airport->id() . '.jpg"></img>'; ?>
           </section>
           <section class="airport-history">

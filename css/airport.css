@@ -10,7 +10,10 @@
   font-size: 32px;
 }
 #airport .content-right .airport-home img {
-  width: 100%;
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid #5B9DDE;
 }
 #airport .content-right .airport-links ul {
   display: flex;
