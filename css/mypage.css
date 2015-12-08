@@ -1,0 +1,20 @@
+.admin-panel {
+  border: 2px solid #ccc;
+  padding: 10px;
+}
+.admin-panel ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.admin-panel .button {
+  background: #5B9DDE;
+  border: 1px solid #000;
+  margin: 0 40px;
+}
+.admin-panel .button a {
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  padding: 16px 24px;
+}

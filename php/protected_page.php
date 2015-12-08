@@ -1,11 +1,3 @@
-<?php
-  include_once '../includes/db_connect.php';
-  include_once '../includes/functions.php';
-  require_once 'data.php';
-
-  sec_session_start();
-?>
-
 <!DOCTYPE html>
 
 <html>
@@ -21,12 +13,6 @@
         <div class="content">
           <?php if (login_check($mysqli) == true) : ?>
               <p>Welcome <span style="color: #5B9DDE; font-weight: bold;"><?php echo htmlentities($_SESSION['username']); ?></span>!</p><br>
-              <p class="notice">
-                  This is an example protected page.  To access this page, users
-                  must be logged in.  At some stage, we'll also check the role of
-                  the user, so pages will be able to determine the type of user
-                  authorized to access the page.
-              </p><br>
 
               <article> <?php
 
@@ -39,19 +25,24 @@
                  $reviewEntries =  $data->joinTables();
 
                  if(isset($_SESSION["role"]))
-                  if($_SESSION["role"] == 0){
-                       echo '<p><a href="title_content_uploader.php"><span style="font-weight:bold">Submit a new Review</span></a></p><br>';
-                       echo '<p>Review History:</p><br>';
+                  if($_SESSION["role"] == 1)
+                  {
+                    echo '<p class="notice">You are logged in as an administrator.</p><br>';
+                    echo '<div class="admin-panel"><h3>Admin Panel</h3><br><ul>'
+                        . '<li class="button"><a href="reviewsAdmin.php">Manage Reviews</a></li>'
+                        . '<li class="button"><a href="adminUsers.php">Manage Users</a></li>'
+                        . '<li class="button"><a href="flightsAdmin.php">Manage Flights</a></li>'
+                        .'</ul></div><br>';
                   }
 
                  if(isset($_SESSION["role"]))
-                  if($_SESSION["role"] == 1) {
-                    echo "<p>You are logged as administrator.</p>";
-                    echo "<p>To access reviews management click <a href= 'reviewsAdmin.php'> here.</a></p>";
-                    echo "<p>To access users management click <a href= 'adminUsers.php'> here.</a></p>";
-                    echo "<p>To access flights management click <a href= 'flightsAdmin.php'> here.</a></p>";
+                  if($_SESSION["role"] == 0 || $_SESSION["role"] == 1)
+                  {
+                       echo '<p><a href="title_content_uploader.php"><span style="font-weight:bold">Submit a new Review</span></a></p><br>';
+                       echo '<p>My Review History:</p><br>';
                   }
-                 if (($existing != false) && ($existing != null) && ($_SESSION["role"] == 0))
+
+                 if (($existing != false) && ($existing != null) && ($_SESSION["role"] == 0 || $_SESSION["role"] == 1))
                   if(count($reviewEntries)!=0){
                    $entry = $existing[0];
                    foreach ($reviewEntries as $blog)

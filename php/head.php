@@ -15,24 +15,13 @@
   <script type="text/javascript" src="../js/sha512.js"></script>
   <script type="text/javascript" src="../js/forms.js"></script>
   <script type="text/javascript" src="../js/checker.js"></script>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
 
-    th, td {
-      text-align: left;
-      padding: 8px;
-    }
+  <!-- GLOBAL PHP -->
+  <?php
+    include_once '../includes/db_connect.php';
+    include_once '../includes/functions.php';
+    require_once 'data.php';
 
-    tr:nth-child(even){background-color: #f2f2f2}
-    tr:nth-child(odd){background-color: #ffffff }
-
-    th {
-      background-color: #0099ff;
-      color: white;
-      font-weight: bold;
-    }
-  </style>
+    sec_session_start();
+  ?>
 </head>

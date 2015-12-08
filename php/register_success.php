@@ -11,7 +11,7 @@
       <!-- page content -->
       <div class="content-wrap">
         <div class="content">
-          <h1>Registration successful!</h1>
+          <p class="success">Registration successful!</p><br>
           <p>You can now go back to the <a href="login.php">login page</a> and log in</p>
         </div>
       </div>

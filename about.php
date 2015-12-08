@@ -7,6 +7,14 @@
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/effects.js"></script>
     <link rel="stylesheet" type="text/css" href="css/base.css">
+
+    <?php
+      include_once 'includes/db_connect.php';
+      include_once 'includes/functions.php';
+      require_once 'php/data.php';
+
+      sec_session_start();
+    ?>
   </head>
 
   <body>
@@ -31,10 +39,21 @@
                   <li><a href="php/airport.php?airport=5">Honolulu International Airport</a></li>
                 </ul>
               </li>
-              <li>
-                <a href="./php/register.php">Register</a>
-                |<a href="./php/login.php">Login</a>
-              </li>
+              <?php
+                echo '<li>';
+                if(isset($_SESSION["role"]))
+                {
+                 if($_SESSION["role"] == 0 || $_SESSION["role"] == 1)
+                 {
+                   echo '<a href="php/protected_page.php">My Page</a> | <a href="php/logout.php">Logout</a>';
+                 }
+                }
+                else
+                {
+                  echo '<a href="php/register.php">Register</a> | <a href="php/login.php">Login</a>';
+                }
+                echo '</li>';
+              ?>
             </ul>
           </nav>
         </div>

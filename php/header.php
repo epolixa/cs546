@@ -18,12 +18,21 @@
         <li class="airports">
             <?php Common::airport_nav_dropdown(); ?>
         </li>
-        <li>
-          <a href="./register.php">Register</a>
-          |
-          <a href="./login.php">Login</a>
-        </li>
-        <li><a href="protected_page.php">My Page</a></li>
+        <?php
+          echo '<li>';
+          if(isset($_SESSION["role"]))
+          {
+           if($_SESSION["role"] == 0 || $_SESSION["role"] == 1)
+           {
+             echo '<a href="protected_page.php">My Page</a> | <a href="./logout.php">Logout</a>';
+           }
+          }
+          else
+          {
+            echo '<a href="./register.php">Register</a> | <a href="./login.php">Login</a>';
+          }
+          echo '</li>';
+        ?>
       </ul>
     </nav>
   </div>
