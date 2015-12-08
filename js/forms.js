@@ -31,6 +31,7 @@ function regformhash(form, firstname, lastname, uid, email, password, conf) {
           lastname.value == '' ) {
  
         alert('You must provide all the requested details. Please try again');
+        location.reload();
         return false;
     }
  
@@ -40,6 +41,7 @@ function regformhash(form, firstname, lastname, uid, email, password, conf) {
     if(!re.test(form.username.value) || !re.test(form.firstname.value) || !re.test(form.lastname.value) ) { 
         alert("Username must contain only letters, numbers and underscores. Please try again"); 
         form.username.focus();
+        location.reload();
         return false; 
     }
     
@@ -51,6 +53,7 @@ function regformhash(form, firstname, lastname, uid, email, password, conf) {
     if (password.value.length < 6) {
         alert('Passwords must be at least 6 characters long.  Please try again');
         form.password.focus();
+        location.reload();
         return false;
     }
  
@@ -60,6 +63,7 @@ function regformhash(form, firstname, lastname, uid, email, password, conf) {
     var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/; 
     if (!re.test(password.value)) {
         alert('Passwords must contain at least one number, one lowercase and one uppercase letter.  Please try again');
+        location.reload();
         return false;
     }
  
@@ -67,6 +71,7 @@ function regformhash(form, firstname, lastname, uid, email, password, conf) {
     if (password.value != conf.value) {
         alert('Your password and confirmation do not match. Please try again');
         form.password.focus();
+        location.reload();
         return false;
     }
  
