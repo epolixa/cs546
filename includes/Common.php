@@ -7,7 +7,7 @@ require_once'../includes/Shop.php';
 class Common{
     public static function flightsAdminForm($step,$name,$num,$origin,$dest,$arr,$dep,$status){
         echo '<form id = "flights_id" action = "flightsAdmin.php?step='.$step.'Flight" method = "POST">';
-        echo 'Airline:<select required>';
+        echo 'Airline:<select name="airline_name" required>';
             $airlines = Common::selectAirlinesForForm();
               if($airlines && count($airlines)>0) {
                   foreach ($airlines as $airline) {
@@ -31,8 +31,8 @@ class Common{
             }
         }
         echo"</select><br>";
-        echo 'Arrival Time:<input type = "datetime" name = "arrival_time"  id = "arrival_time_id" value = "' . $arr . '"  style = "width: 350px"  required/> <br>';
-        echo 'Departure Time:<input type = "datetime" name = "departure_time"  id = "departure_time_id" value = "' . $dep . '"  style = "width: 350px"  required /> <br>';
+        echo 'Arrival Time:<input type = "text" name = "arrival_time"  id = "arrival_time_id" value = "' . $arr . '"  style = "width: 350px"  required/> <br>';
+        echo 'Departure Time:<input type = "text" name = "departure_time"  id = "departure_time_id" value = "' . $dep . '"  style = "width: 350px"  required /> <br>';
         echo 'Status:<input type = "text" name = "status"  id = "status_id" value = "' . $status . '"  style = "width: 350px"  required/> <br>';
         echo '<input type="submit" value="'.ucfirst($step).'">';
         echo '</form><br><br>';

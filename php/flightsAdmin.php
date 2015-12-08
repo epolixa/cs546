@@ -35,7 +35,7 @@ if (login_check($mysqli)) {
             if (isset($_GET['flight_number'])) {
                 $flight_id = urldecode(filter_input(INPUT_GET, 'flight_number', FILTER_SANITIZE_STRING));
             }else {
-                echo "Error: Flight ID could not be found!";
+                Common::error("Error: Flight ID could not be found!");
                 die();
             }
                 $flight = new Flight($flight_id);
@@ -48,16 +48,16 @@ if (login_check($mysqli)) {
         $flight = new Flight();
         if (isset($_POST['airline_name']) && isset($_POST['flight_number']) && isset($_POST['origin']) && isset($_POST['destination']) && isset($_POST['arrival_time']) && isset($_POST['departure_time']) && isset($_POST['status'])) {
             if($flight->create($_POST['flight_number'],$_POST['airline_name'],$_POST['destination'], $_POST['departure_time'], $_POST['arrival_time'], $_POST['status'],$_POST['origin'])){
-                echo"SUCCESS! You've successfully added flight number ".$flight->flight_number()."!";
+                Common::error("Success: You've successfully added flight number ".$flight->flight_number()."!","success");
             }else{
-
-                echo"There was an error with your submission. <a href=flightsAdmin.php?step=createFlight>Back</a>";
+                Common::error("There was an error with your submission. <a href=flightsAdmin.php?step=createFlight>Back</a>");
             }
+        }else{
+            Common::error("Error: One or more fields were left blank.");
         }
     }elseif($step=="updateFlight") {
         if (isset($_POST['flight_number'])) {
             $flight_id = urldecode(filter_input(INPUT_POST, 'flight_number', FILTER_SANITIZE_STRING));
-            echo"HIT!";
         }else {
             Common::error("Error: Flight ID could not be found!");
             die();
@@ -65,10 +65,9 @@ if (login_check($mysqli)) {
         $flight= new Flight($flight_id);
         if (isset($_POST['airline_name']) && isset($_POST['flight_number']) && isset($_POST['origin']) && isset($_POST['destination']) && isset($_POST['arrival_time']) && isset($_POST['departure_time']) && isset($_POST['status'])) {
             if($flight->edit($_POST['flight_number'],$_POST['airline_name'],$_POST['destination'], $_POST['departure_time'], $_POST['arrival_time'], $_POST['status'],$_POST['origin'])){
-                echo"SUCCESS! You've successfully edited flight number ".$flight->flight_number()."!";
+                Common::error("Success: You've successfully edited flight number ".$flight->flight_number()."!", "success");
             }else{
-                echo"There was an error with your submission. <a href=flightsAdmin.php?step=editFlight&flight_id=".$flight_id.">Back</a>";
-
+                Common::error("There was an error with your submission. <a href=flightsAdmin.php?step=editFlight&flight_id=".$flight_id.">Back</a>");
             }
         }
 
@@ -76,14 +75,14 @@ if (login_check($mysqli)) {
         if (isset($_GET['flight_number'])) {
             $flight_id = urldecode(filter_input(INPUT_GET, 'flight_number', FILTER_SANITIZE_STRING));
         }else {
-            echo "Error: Flight ID could not be found!";
+            Common::error("Error: Flight ID could not be found!");
             die();
         }
         $flight= new Flight($flight_id);
        if($flight->delete()){
-            echo"SUCCESS! You've successfully deleted flight number ".$flight->flight_number()."!";
+            Common::error("Success: You've successfully deleted flight number ".$flight->flight_number()."!","success");
        }else{
-            echo"There was an error with your submission. <a href=flightsAdmin.php?step=createFlight>Back</a>";
+            Common::error("There was an error with your submission. <a href=flightsAdmin.php?step=createFlight>Back</a>");
        }
     }else{
         echo'<h1>Flights Admin</h1>';
