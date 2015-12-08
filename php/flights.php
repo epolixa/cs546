@@ -26,35 +26,37 @@
         </div>
         <div class="content-right">
           <section class="airport-flights">
-            <h2>Flights of <?php echo $airport->name(); ?> International Airport</h2>
+            <h1>Flights of <?php echo $airport->name(); ?> International Airport</h1>
               <br>
               <br>
             <h2>Departures</h2>
 
               <table>
               <tr>
-                <th>Flight Number</th>
-                <th>Airline</th>
-                <th>Destination</th>
-                <th>Departure</th>
-                <th>Arrival</th>
-                <th>Status</th>
-                <th>Origin</th>
+                  <th>Flight Number</th>
+                  <th>Origin</th>
+                  <th>Destination</th>
+                  <th>Airline</th>
+                  <th>Departure Time</th>
+                  <th>Arrival Time</th>
+                  <th>Status</th>
               </tr>
               <?php
                   $flights = Common::selectFlights("origin","=",$airport->name());
-              if($flights) {
+              if($flights && count($flights)>0) {
                   foreach ($flights as $flight) {
                       echo "<tr>";
                       echo "<td>" . $flight->flight_number() . "</td>";
-                      echo "<td>" . $flight->airline_name() . "</td>";
+                      echo "<td>" . $flight->origin() . "</td>";
                       echo "<td>" . $flight->destination() . "</td>";
+                      echo "<td>" . $flight->airline_name() . "</td>";
                       echo "<td>" . $flight->departure_time() . "</td>";
                       echo "<td>" . $flight->arrival_time() . "</td>";
                       echo "<td>" . $flight->status() . "</td>";
-                      echo "<td>" . $flight->origin() . "</td>";
                       echo "</tr>";
                   }
+              }else{
+                  echo"<tr><td colspan='7'><center>There aren't any departures at this time.</center></td></tr> ";
               }
               ?>
             </table>
@@ -63,28 +65,31 @@
               <table>
                   <tr>
                       <th>Flight Number</th>
-                      <th>Airline</th>
-                      <th>Destination</th>
-                      <th>Departure</th>
-                      <th>Arrival</th>
-                      <th>Status</th>
                       <th>Origin</th>
+                      <th>Destination</th>
+                      <th>Airline</th>
+                      <th>Departure Time</th>
+                      <th>Arrival Time</th>
+                      <th>Status</th>
+
                   </tr>
                   <?php
                   $flights = Common::selectFlights("destination","=",$airport->name());
-                if($flights){
-                  foreach($flights as $flight) {
-                      echo "<tr>";
-                      echo "<td>" . $flight->flight_number() . "</td>";
-                      echo "<td>" . $flight->airline_name() . "</td>";
-                      echo "<td>" . $flight->destination() . "</td>";
-                      echo "<td>" . $flight->departure_time() . "</td>";
-                      echo "<td>" . $flight->arrival_time() . "</td>";
-                      echo "<td>" . $flight->status() . "</td>";
-                      echo "<td>" . $flight->origin() . "</td>";
-                      echo "</tr>";
+                  if($flights && count($flights)>0){
+                      foreach($flights as $flight) {
+                          echo "<tr>";
+                          echo "<td>" . $flight->flight_number() . "</td>";
+                          echo "<td>" . $flight->origin() . "</td>";
+                          echo "<td>" . $flight->destination() . "</td>";
+                          echo "<td>" . $flight->airline_name() . "</td>";
+                          echo "<td>" . $flight->departure_time() . "</td>";
+                          echo "<td>" . $flight->arrival_time() . "</td>";
+                          echo "<td>" . $flight->status() . "</td>";
+                          echo "</tr>";
+                      }
+                  }else{
+                    echo"<tr><td colspan='7'><center>There aren't any arrivals at this time.</center></td></tr> ";
                   }
-                }
                   ?>
             </table>
           </section>

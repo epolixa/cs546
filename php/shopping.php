@@ -38,10 +38,7 @@
               </tr>
               <?php
                   $shops = Common::selectShops("airport","=",$airport->name());
-                  // $sql = "select * from shopping where airport = " . $airport->id() . "";
-                  // $result = mysql_query($sql);
-                  while($shops)
-                  {
+                  foreach($shops as $shop) {
                     echo "<tr>";
                     echo "<td>".$shops['id']."</td>";
                     echo "<td>".$shops['name']."</td>";

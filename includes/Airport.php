@@ -1,5 +1,6 @@
 <?php
 require_once('../includes/connection.php');
+require_once('../includes/Common.php');
 /**
  * Created by PhpStorm.
  * User: Class2013
@@ -99,6 +100,7 @@ class Airport
            $stmt->close();
        }else{
            //AIRPORT NOT FOUND
+            Common::error("Error: Airport could not be found!");
        }
    }
 

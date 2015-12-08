@@ -85,4 +85,16 @@ class Common{
         }
         echo'</ul>';
     }
+
+    public static function error($msg, $type="error"){
+        //possible types are error, info, warning, success
+        echo"<div class=".$type.">".$msg."</div>";
+        echo" </div>
+                  </div>";
+        include_once 'footer.php';
+        echo"            </div>
+            </body>
+            </html>";
+        die();
+    }
 }
