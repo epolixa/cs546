@@ -32,20 +32,22 @@
 
               <table>
               <tr>
-                <th>Id</th>
-                <th>Airline_Name</th>
+                <th>Name</th>
+                  <th>Terminal</th>
                 <th>Contact</th>
               </tr>
               <?php
-                  $airlines = Common::selectAirlines("ata.airportid", "=", "$airportID");
-              if($airlines) {
+                  $airlines = Common::selectAirlines("ata.airportid", "=", "$airportID", "ata.`terminalid`");
+              if($airlines && count($airlines)>0) {
                   foreach ($airlines as $airline) {
                       echo "<tr>";
-                      echo "<td>" . $airline['id'] . "</td>";
                       echo "<td>" . $airline['name'] . "</td>";
+                      echo "<td>" . $airline['terminal'] . "</td>";
                       echo "<td>" . $airline['contact'] . "</td>";
                       echo "</tr>";
                   }
+              }else{
+                  echo"<tr><td colspan='3'><center>There aren't any Airlines at this time.</center></td></tr> ";
               }
               ?>
             </table>

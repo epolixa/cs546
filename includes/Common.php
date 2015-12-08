@@ -38,11 +38,13 @@ class Common{
         return false;
     }
 
-    public static function selectAirlines($whereField="",$whereOperator="",$whereValue=""){
+    public static function selectAirlines($whereField="",$whereOperator="",$whereValue="", $orderBy=""){
         $db =  new DatabaseConnection();
-        $sql = "SELECT `id`,`name`,`contact` FROM `airlines`, `ata` WHERE ata.`airlineid` = airlines.`id`";
+        $sql = "SELECT `id`,`name`,`contact`, ata.`terminalid` AS terminal FROM `airlines`, `ata` WHERE ata.`airlineid` = airlines.`id`";
         if($whereField!="" && in_array($whereOperator,array(">","<","<=",">=","=","<>")) && $whereValue!="")
             $sql .=" AND ".$whereField."". $whereOperator."'".$whereValue."'";
+        if($orderBy!="")
+            $sql .= " ORDER BY ".$orderBy;
         $stmt = $db->send_sql($sql);
         // die($sql);
         if($stmt->num_rows>0){
