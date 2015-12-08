@@ -18,6 +18,13 @@
   color: #777;
 }
 
+.review .review-rank .star {
+  font-size: 20px;
+  color: gold;
+  display: inline-block;
+  text-shadow: 0 0 1px red;
+}
+
 .review .review-content {
   border-left: 2px solid #ccc;
   font-style: italic;

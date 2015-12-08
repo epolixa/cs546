@@ -10,4 +10,12 @@ $(document).ready(function() {
     $(this).find('ul').slideToggle();
   });
 
+  /* Review stars */
+  $('.review .review-rank ul').each(function() {
+    var score = parseInt($(this).text());
+    $(this).text('');
+    for (; score > 0; score--)
+      $(this).append('<li class="star">★</li>');
+  });
+
 });
