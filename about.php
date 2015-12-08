@@ -20,6 +20,7 @@
   <body>
     <div id="about" class="container">
       <div class="header-wrap">
+        <?php require_once('includes/Common.php') ?>
         <div class="header">
           <div class="banner">
             <h1 class="title">Airport Aggregator</h1>
@@ -30,14 +31,7 @@
               <li><a href="home.php">Home</a></li>
               <li><a href="about.php">About</a></li>
               <li class="airports">
-                <span>Airports</span>
-                <ul>
-                  <li><a href="php/airport.php?airport=1">JFK International Airport</a></li>
-                  <li><a href="php/airport.php?airport=2">San Francisco International Airport</a></li>
-                  <li><a href="php/airport.php?airport=3">Miami Airport</a></li>
-                  <li><a href="php/airport.php?airport=4">Houston George Bush International Airport</a></li>
-                  <li><a href="php/airport.php?airport=5">Honolulu International Airport</a></li>
-                </ul>
+                <?php Common::airport_nav_dropdown(); ?>
               </li>
               <?php
                 echo '<li>';

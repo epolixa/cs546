@@ -1,5 +1,12 @@
 <?php
-require_once('../includes/connection.php');
+if (file_exists('../includes/connection.php'))
+{
+  require_once '../includes/connection.php';
+}
+else
+{
+  require_once 'includes/connection.php';
+}
 
 class Shop
 {

@@ -1,8 +1,19 @@
 <?php
-require_once'../includes/connection.php';
-require_once'../includes/Airport.php';
-require_once'../includes/Flight.php';
-require_once'../includes/Shop.php';
+
+if (file_exists('../includes/connection.php'))
+{
+  require_once'../includes/connection.php';
+  require_once'../includes/Airport.php';
+  require_once'../includes/Flight.php';
+  require_once'../includes/Shop.php';
+}
+else
+{
+  require_once'includes/connection.php';
+  require_once'includes/Airport.php';
+  require_once'includes/Flight.php';
+  require_once'includes/Shop.php';
+}
 
 class Common{
     public static function flightsAdminForm($step,$name,$num,$origin,$dest,$arr,$dep,$status){
@@ -140,8 +151,16 @@ class Common{
         echo'<span>Airports</span>
                 <ul>';
         if($airports){
-            foreach($airports as $airport){
-                echo'<li><a href="airport.php?airport='.$airport->id().'">'.$airport->name().'</a></li>';
+            if (file_exists('airport.php'))
+            {
+              foreach($airports as $airport){
+                  echo'<li><a href="airport.php?airport='.$airport->id().'">'.$airport->name().'</a></li>';
+              }
+            }
+            else {
+              foreach($airports as $airport){
+                  echo'<li><a href="php/airport.php?airport='.$airport->id().'">'.$airport->name().'</a></li>';
+              }
             }
         }
         echo'</ul>';

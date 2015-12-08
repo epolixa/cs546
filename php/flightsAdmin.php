@@ -1,10 +1,6 @@
 <?php
 require_once'../includes/Airport.php';
 require_once'../includes/Flight.php';
-include_once '../includes/db_connect.php';
-include_once '../includes/functions.php';
-require_once 'data.php';
-sec_session_start();
 ?>
 <!DOCTYPE html>
 

@@ -1,6 +1,16 @@
 <?php
-require_once('../includes/connection.php');
-require_once('../includes/Common.php');
+
+if (file_exists('../includes/connection.php'))
+{
+  require_once '../includes/connection.php';
+  require_once '../includes/Common.php';
+}
+else
+{
+  require_once 'includes/connection.php';
+  require_once 'includes/Common.php';
+}
+
 /**
  * Created by PhpStorm.
  * User: Class2013

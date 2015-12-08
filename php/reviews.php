@@ -30,12 +30,6 @@
 
           <section class="airport-reviews">
             <?php
-
-                require_once 'data.php';
-                include_once '../includes/db_connect.php';
-                include_once '../includes/functions.php';
-
-                sec_session_start();
                 $data = new reviewsFormation();
                 $exisitng = true;
                 $reviewsEntries =  $data->joinTables();

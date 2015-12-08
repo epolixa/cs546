@@ -1,5 +1,12 @@
 <?php
-require_once('../includes/connection.php');
+if (file_exists('../includes/connection.php'))
+{
+  require_once '../includes/connection.php';
+}
+else
+{
+  require_once 'includes/connection.php';
+}
 /**
  * Created by Jianhong Mou.
  * Date: 12/1/2015
@@ -17,8 +24,8 @@ class Flight
         //SANITIZE INPUT
         $flight_number = filter_var($flight_number, FILTER_SANITIZE_STRING);
         $airline_name = filter_var($airline_name, FILTER_SANITIZE_STRING);
-        $destination = filter_var($destination, FILTER_SANITIZE_STRING); 
-        $departure_time = filter_var($departure_time, FILTER_SANITIZE_STRING); 
+        $destination = filter_var($destination, FILTER_SANITIZE_STRING);
+        $departure_time = filter_var($departure_time, FILTER_SANITIZE_STRING);
         $arrival_time = filter_var($arrival_time, FILTER_SANITIZE_STRING);
         $status = filter_var($status, FILTER_SANITIZE_STRING);
         $origin = filter_var($origin, FILTER_SANITIZE_STRING);
@@ -54,8 +61,8 @@ class Flight
         //SANITIZE INPUT
         $flight_number = filter_var($flight_number, FILTER_SANITIZE_STRING);
         $airline_name = filter_var($airline_name, FILTER_SANITIZE_STRING);
-        $destination = filter_var($destination, FILTER_SANITIZE_STRING); 
-        $departure_time = filter_var($departure_time, FILTER_SANITIZE_STRING); 
+        $destination = filter_var($destination, FILTER_SANITIZE_STRING);
+        $departure_time = filter_var($departure_time, FILTER_SANITIZE_STRING);
         $arrival_time = filter_var($arrival_time, FILTER_SANITIZE_STRING);
         $status = filter_var($status, FILTER_SANITIZE_STRING);
         $origin = filter_var($origin, FILTER_SANITIZE_STRING);
