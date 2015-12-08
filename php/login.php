@@ -29,7 +29,7 @@
                         $logged = 'out';
                     }
                     if (isset($_GET['error'])) {
-                        echo '<p class="error">Error Logging In!</p>';
+                        echo '<p class="warning">Error Logging In!</p><br>';
                     }
                 ?>
                 <form action="process_login.php" method="post" name="login_form">

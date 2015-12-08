@@ -34,6 +34,22 @@ h2 {
   font-weight: bold;
 }
 
+.success {
+  background: lightgreen;
+  border: 2px solid darkgreen;
+  padding: 8px 8px 8px 24px;
+}
+.success:before {
+  content: '✔';
+  font-weight: bold;
+  font-size: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: darkgreen;
+  position: absolute;
+  left: 4px;
+}
+
 .notice {
   background: yellow;
   border: 2px solid orange;
