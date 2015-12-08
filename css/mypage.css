@@ -4,13 +4,13 @@
 }
 .admin-panel ul {
   display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 .admin-panel .button {
   background: #5B9DDE;
   border: 1px solid #000;
-  margin: 0 40px;
+  margin: 10px 10px;
 }
 .admin-panel .button a {
   color: #fff;

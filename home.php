@@ -55,6 +55,9 @@
 
         <div class="content-wrap">
           <div class="content">
+            <h2>Welcome to Airport Aggregator!</h2>
+            <h3>Choose an airport below to view information about its flights and more!</h3>
+            <br>
             <section class="main-airports">
               <ul>
                 <li class="airport-li">

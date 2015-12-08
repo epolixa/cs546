@@ -34,7 +34,8 @@ h2 {
   font-weight: bold;
 }
 h3 {
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 table {
@@ -104,6 +105,15 @@ th {
   left: 4px;
 }
 
+.button {
+  background: #5B9DDE;
+  box-shadow: 0 0 4px #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 20px;
+  margin: 0 10px 20px 10px;
+}
+
 .container {
   max-width: 60em;
   margin: 0 auto;
@@ -128,7 +138,7 @@ th {
 }
 .content-left .nav-secondary {
   background: #5B9DDE;
-  border: 1px solid #000;
+  box-shadow: 0 0 4px #333;
   color: #fff;
   padding: 10px;
   line-height: 24px;
@@ -136,7 +146,7 @@ th {
 .content-left .nav-secondary h3 {
   font-size: 20px;
   text-align: center;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #fff;
   padding-bottom: 8px;
   margin-bottom: 8px;
 }
