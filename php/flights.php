@@ -33,13 +33,13 @@
 
               <table>
               <tr>
-                <th>flight_number</th>
-                <th>airline_name</th>
-                <th>destination</th>
-                <th>departure_time</th>
-                <th>arrival_time</th>
-                <th>status</th>
-                <th>origin</th>
+                <th>Flight Number</th>
+                <th>Airline</th>
+                <th>Destination</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Status</th>
+                <th>Origin</th>
               </tr>
               <?php
                   $flights = Common::selectFlights("origin","=",$airport->name());
@@ -61,15 +61,15 @@
               <br><br>
             <h2>Arrivals</h2>
               <table>
-              <tr>
-                <th>flight_number</th>
-                <th>airline_name</th>
-                <th>destination</th>
-                <th>departure_time</th>
-                <th>arrival_time</th>
-                <th>status</th>
-                <th>origin</th>
-              </tr>
+                  <tr>
+                      <th>Flight Number</th>
+                      <th>Airline</th>
+                      <th>Destination</th>
+                      <th>Departure</th>
+                      <th>Arrival</th>
+                      <th>Status</th>
+                      <th>Origin</th>
+                  </tr>
                   <?php
                   $flights = Common::selectFlights("destination","=",$airport->name());
                 if($flights){
