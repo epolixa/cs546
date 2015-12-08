@@ -2,29 +2,32 @@
       airport reviews page
       Erich
 -->
-
 <?php
   require_once('../includes/Airport.php');
   $airportID = filter_input(INPUT_GET,'airport',FILTER_SANITIZE_NUMBER_INT);
   $airport = new Airport($airportID);
 ?>
+            <!DOCTYPE html>
 
-<!DOCTYPE html>
+            <html>
+            <?php include_once 'head.php' ?>
 
-<html>
-  <?php include_once 'head.php' ?>
+            <body>
+            <div id="reviews" class="container">
 
-  <body>
-    <div id="reviews" class="container">
+                <?php include_once 'header.php' ?>
 
-      <?php include_once 'header.php' ?>
+                <!-- page content -->
+                <div class="content-wrap">
+                    <div class="content-left">
+                        <?php include_once 'nav-airport.php' ?>
+                    </div>
+                    <div class="content-right">
+                        <?php
+                        if(!$airport->exists())
+                            Common::error("Error: Airport could not be found!");
+                        ?>
 
-      <!-- page content -->
-      <div class="content-wrap">
-        <div class="content-left">
-          <?php include_once 'nav-airport.php' ?>
-        </div>
-        <div class="content-right">
           <section class="airport-reviews">
             <?php
 

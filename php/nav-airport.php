@@ -2,7 +2,10 @@
       secondary left navigation on airport pages
       Erich
 -->
-
+<?php
+if(!isset($airport))
+  $airport= new Airport();
+?>
 <nav class="nav-secondary">
 
   <!-- $airport initialized in parent -->

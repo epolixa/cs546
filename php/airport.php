@@ -2,32 +2,36 @@
       airport landing page
       Erich
 -->
+
 <?php
   require_once('../includes/Airport.php');
   $airportID = filter_input(INPUT_GET,'airport',FILTER_SANITIZE_NUMBER_INT);
   $airport = new Airport($airportID);
-  if(!$airport->exists())
-    Common::error("Error: Airport could not be found!");
+
 ?>
+        <!DOCTYPE html>
 
-<!DOCTYPE html>
+        <html>
+        <?php include_once 'head.php' ?>
 
-<html>
-  <?php include_once 'head.php' ?>
+        <body>
+        <div id="airport" class="container">
 
-  <body>
-    <div id="airport" class="container">
+            <?php include_once 'header.php' ?>
 
-      <?php include_once 'header.php' ?>
+            <!-- page content -->
+            <div class="content-wrap">
+                <div class="content-left">
+                    <?php include_once 'nav-airport.php' ?>
+                </div>
+                <div class="content-right">
 
-      <!-- page content -->
-      <div class="content-wrap">
-        <div class="content-left">
-          <?php include_once 'nav-airport.php' ?>
-        </div>
-        <div class="content-right">
-          <section class="airport-home">
-            <h2><?php echo $airport->name() ?></h2>
+
+                    <?php
+                    if(!$airport->exists())
+                        Common::error("Error: Airport could not be found!");
+                    ?>
+                    <section class="airport-home"><h2><?php echo $airport->name() ?></h2>
             <img src="../images/airport.jpg"></img>
             <p>battle beetle in a bottle with a fox in a box</p>
           </section>

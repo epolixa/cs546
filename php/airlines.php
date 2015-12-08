@@ -2,33 +2,33 @@
       airport flights page
       Erich
 -->
-
 <?php
   require_once('../includes/Airport.php');
   $airportID = filter_input(INPUT_GET,'airport',FILTER_SANITIZE_NUMBER_INT);
   $airport = new Airport($airportID);
-if(!$airport->exists())
-    Common::error("Error: Airport could not be found!");
 ?>
-
 <!DOCTYPE html>
 
 <html>
-  <?php include_once 'head.php' ?>
+<?php include_once 'head.php' ?>
 
-  <body>
-    <div id="flights" class="container">
+<body>
+<div id="flights" class="container">
 
-      <?php include_once 'header.php' ?>
+    <?php include_once 'header.php' ?>
 
-      <!-- page content -->
-      <div class="content-wrap">
+    <!-- page content -->
+    <div class="content-wrap">
         <div class="content-left">
-          <?php include_once 'nav-airport.php' ?>
+            <?php include_once 'nav-airport.php' ?>
         </div>
         <div class="content-right">
-          <section class="airport-flights">
-            <h2>Airlines of <?php echo $airport->name(); ?> International Airport</h2>
+
+              <?php
+              if(!$airport->exists())
+                Common::error("Error: Airport could not be found!");
+              ?>
+              <section class="airport-flights"><h2>Airlines of <?php echo $airport->name(); ?> International Airport</h2>
               <br>
               <br>
 
