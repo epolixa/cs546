@@ -56,37 +56,32 @@
         <div class="content-wrap">
           <div class="content">
             <section class="about">
+              <h3>What is this site?</h3>
               <p>
-                We have no limits to our world. We're only limited by our
-                imagination. Every time you practice, you learn more All you
-                need to paint is a few tools, a little instruction, and a
-                vision in your mind. Just beat the devil out of it. Let all
-                these little things happen. Don't fight them. Learn to use them.
-                You want your tree to have some character. Make it special.
-
-                These things happen automatically. All you have to do is just
-                let them happen. And just raise cain. Let's go up in here, and
-                start having some fun We're not trying to teach you a thing to
-                copy. We're just here to teach you a technique, then let you
-                loose into the world. In this world, everything can be happy.
+                Airport Aggregator provides information for multiple airports
+                in one place, making it easy for you to plan your next trip between
+                airports.
               </p>
-            </section>
+            </section><br>
 
             <section class="faq">
+              <h3>FAQ</h3>
               <ul>
                 <li>
-                  <h2>Is this the FAQ?</h2>
-                  <p>Yes, this is the FAQ.</p>
+                  <span class="question">Is this the FAQ?</span><br>
+                  <span class="answer">Yes, this is the FAQ.</span>
                 </li>
                 <li>
-                  <h2>How much wood could a woodchuck chuck?</h2>
-                  <p>About three fifty.</p>
+                  <span class="question">How many airports are supported?</span><br>
+                  <span class="answer">We currently support five different airports.</span>
+                </li>
               </ul>
-            </section>
+            </section><br>
 
             <section class="contact">
+              <h3>Contact the team</h3>
               <address>
-                <span id="name">Airport Aggregator</span>
+                <span id="name">Erich Polixa</span>
                 <span id="email">epolixa@gmail.com</span>
               </address>
             </section>

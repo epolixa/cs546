@@ -160,6 +160,19 @@ th {
   margin-bottom: 20px;
 }
 
+.faq li {
+  margin-bottom: 10px;
+}
+.faq .question {
+  border-left: 1px solid #ccc;
+  padding-left: 8px;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+.faq .answer {
+  font-weight: bold;
+}
+
 @media(min-width: 47.5em)
 {
   .content-left {

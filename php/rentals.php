@@ -25,30 +25,41 @@
                         if(!$airport->exists())
                             Common::error("Error: Airport could not be found!");
                         ?>
-          <section class="airport-reviews">
+          <section class="airport-rentals">
+            <h2><?php echo $airport->name() ?> International Airport Car Rentals</h2>
+            <br>
+              <table>
+              <tr>
+                <th>Company</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Rank</th>
+              </tr>
             <?php
         
                 require_once 'data.php';
                 $data = new reviewsFormation();                
                 $rentals =  $data->getRentals($airportID); 
                         
-                echo "<p>Click <a href='../home.html'>here</a> to go to the main page.</p>";
                 
                 if(count($rentals)!=0){
-                    foreach ($rentals as $blog) { 
-                            
+                  foreach ($rentals as $blog) {
                     $temp = $data->getRentalCompany ($blog["companyid"]);
 
-                    $companyName = $temp[0];
-                    //if($blog["airportid"] ==  )                       
-                    echo "Company: " . $companyName["Name"] . "<br>";
-                    echo "Brand: " . $blog["carbrand"] . "<br>";
-                    echo "Price: " . $blog["price"] . "<br>";
-                    echo "Quantity: " . $blog["quantity"] . "<br>";                    
-                    echo "Rank: " . $blog["rank"] . "<br><br>"; 
-                  } 
+                    $companyName = $temp[0]; 
+                  echo "<tr>";
+                  echo "<td>" . $companyName["Name"] . "</td>";
+                  echo "<td>" . $blog["carbrand"] . "</td>";
+                  echo "<td>" . $blog["price"] . "</td>";
+                  echo "<td>" . $blog["quantity"] . "</td>";
+                  echo "<td>" . $blog["rank"] . "</td>";
+                  echo "</tr>";
+                  }
                 }
+
             ?>
+            </table>
           </section>
         </div>
       </div>

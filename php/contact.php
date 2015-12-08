@@ -31,6 +31,7 @@
                         ?>
           <section class="airport-contact">
               <h2>Contact Info for <?php echo $airport->name() ?> International Airport</h2>
+              <br>
               <p>
                   <?php
                   echo $airport->contact();

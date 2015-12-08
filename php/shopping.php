@@ -30,6 +30,7 @@
 
           <section class="airport-shopping">
             <h2>Shops of <?php echo $airport->name() ?> International Airport</h2>
+            <br>
               <table>
               <tr>
                 <th>Name</th>

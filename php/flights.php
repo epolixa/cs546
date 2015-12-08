@@ -30,10 +30,10 @@
                             Common::error("Error: Airport could not be found!");
                         ?>
           <section class="airport-flights">
-            <h1>Flights of <?php echo $airport->name(); ?> International Airport</h1>
+            <h2>Flights of <?php echo $airport->name(); ?> International Airport</h2>
               <br>
               <br>
-            <h2>Departures</h2>
+            <h3>Departures</h3>
 
               <table>
               <tr>
@@ -65,7 +65,7 @@
               ?>
             </table>
               <br><br>
-            <h2>Arrivals</h2>
+            <h3>Arrivals</h3>
               <table>
                   <tr>
                       <th>Flight Number</th>

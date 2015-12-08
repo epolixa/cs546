@@ -30,6 +30,7 @@
                         ?>
           <section class="airport-parking">
               <h2>Parking for <?php echo $airport->name() ?> International Airport</h2>
+              <br>
               <p>
                   <?php
                   echo $airport->parking();

@@ -31,6 +31,7 @@
                         ?>
           <section class="airport-faq">
               <h2>FAQ for <?php echo $airport->name() ?> International Airport</h2>
+              <br>
               <p>
                   <?php
                   echo $airport->FAQ();
