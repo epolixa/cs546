@@ -26,8 +26,8 @@
                 <ul>
                   <li><a href="php/airport.php?airport=1">JFK International Airport</a></li>
                   <li><a href="php/airport.php?airport=2">San Francisco International Airport</a></li>
-                  <li><a href="php/airport.php?airport=3">Miami Airport</a></li>
-                  <li><a href="php/airport.php?airport=4">Houston George Bush International Airport</a></li>
+                  <li><a href="php/airport.php?airport=3">Houston George Bush International Airport</a></li>
+                  <li><a href="php/airport.php?airport=4">Miami Airport</a></li>
                   <li><a href="php/airport.php?airport=5">Honolulu International Airport</a></li>
                 </ul>
               </li>
@@ -59,13 +59,13 @@
                 </li>
                 <li class="airport-li">
                   <a href="php/airport.php?airport=3">
-                    <h3 class="airport-title">Miami Airport</h3>
+                    <h3 class="airport-title">Houston George Bush International Airport</h3>
                     <img class="airport-img" src="images/airport.jpg"></img>
                   </a>
                 </li>
                 <li class="airport-li">
                   <a href="php/airport.php?airport=4">
-                    <h3 class="airport-title">Houston George Bush International Airport</h3>
+                    <h3 class="airport-title">Miami Airport</h3>
                     <img class="airport-img" src="images/airport.jpg"></img>
                   </a>
                 </li>

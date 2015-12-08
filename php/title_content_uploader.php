@@ -53,5 +53,6 @@
       <?php include_once 'footer.php' ?>
 
     </div>
+    <script type="text/javascript" src="../js/checker.js"></script>
   </body>
 </html>
