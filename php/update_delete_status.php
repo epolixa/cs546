@@ -75,7 +75,7 @@
         if(!$succeeded)
           echo "Failure updating your review!!!<br>";
 
-        } else{
+        } else if(($_POST["content"] == "") || ($_POST["title"] == "")){
           echo "Impossible to proceed!!! All fields must be filled.<br>";
           echo '<form id = "back_login" action = "protected_page.php" method = "POST">';         
           echo '<input type = "submit" value="Back to Account">';
