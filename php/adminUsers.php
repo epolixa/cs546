@@ -29,7 +29,7 @@
 					?>
 
 
-					<table width="960" border="0" align="center" cellspacing="0" cellpadding="0">
+					<table>
 						<tr>
 							<td align="left">
 								<?php
@@ -60,7 +60,7 @@
 					</table>
 
 
-					<table width="960" border="1" align="center" cellspacing="0" cellpadding="0">
+					<table>
 
 						<tr>
 							<td>ID</td>

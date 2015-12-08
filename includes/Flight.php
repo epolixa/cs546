@@ -77,7 +77,7 @@ class Flight
     public function delete(){
         if($this->flight_number!="") {
             $stmt = $this->db->prepare_statement("DELETE FROM `flights` WHERE `flight_number`=?");
-            $stmt->bind_param("i", $this->flight_number);
+            $stmt->bind_param("s", $this->flight_number);
             return $stmt->execute();
         }
         return false;

@@ -25,11 +25,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="airlines.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/airlines.php">
+      <file leaf-file-name="flightsAdmin.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/flightsAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7701019">
-              <caret line="49" column="112" selection-start-line="49" selection-start-column="112" selection-end-line="49" selection-end-column="112" />
+            <state vertical-scroll-proportion="0.7315968">
+              <caret line="131" column="108" selection-start-line="131" selection-start-column="108" selection-end-line="131" selection-end-column="108" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1449546708350" expanded="true" signature="5108:5447" placeholder="..." />
+                <marker date="1449546708350" expanded="true" signature="5108:6446" placeholder="..." />
+                <marker date="1449546708350" expanded="true" signature="5127:5447" placeholder="..." />
+                <marker date="1449546708350" expanded="true" signature="5583:6363" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Flight.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/Flight.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="5.269231">
+              <caret line="88" column="29" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
+              <folding>
+                <marker date="1449546242912" expanded="true" signature="1134:1277" placeholder="INSERT INTO ..." />
+                <marker date="1449546242912" expanded="true" signature="3695:3740" placeholder="DELETE FROM ..." />
+                <marker date="1449546242912" expanded="true" signature="4037:4099" placeholder="SELECT * FRO..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="airport.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/airport.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.0877192">
+              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -38,8 +68,8 @@
       <file leaf-file-name="flights.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/flights.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.884615">
-              <caret line="90" column="101" selection-start-line="90" selection-start-column="45" selection-end-line="90" selection-end-column="101" />
+            <state vertical-scroll-proportion="-9.807693">
+              <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="61" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -61,17 +91,18 @@
         <option value="$PROJECT_DIR$/php/contact.php" />
         <option value="$PROJECT_DIR$/php/footer.php" />
         <option value="$PROJECT_DIR$/php/header.php" />
-        <option value="$PROJECT_DIR$/php/flightsAdmin.php" />
-        <option value="$PROJECT_DIR$/php/airport.php" />
         <option value="$PROJECT_DIR$/php/protected_page.php" />
         <option value="$PROJECT_DIR$/php/admin.php" />
-        <option value="$PROJECT_DIR$/includes/Flight.php" />
         <option value="$PROJECT_DIR$/php/flights.php" />
         <option value="$PROJECT_DIR$/php/connection.php" />
         <option value="$PROJECT_DIR$/includes/Shop.php" />
         <option value="$PROJECT_DIR$/php/shopping.php" />
         <option value="$PROJECT_DIR$/includes/Common.php" />
         <option value="$PROJECT_DIR$/php/airlines.php" />
+        <option value="$PROJECT_DIR$/php/adminUsers.php" />
+        <option value="$PROJECT_DIR$/php/airport.php" />
+        <option value="$PROJECT_DIR$/includes/Flight.php" />
+        <option value="$PROJECT_DIR$/php/flightsAdmin.php" />
       </list>
     </option>
   </component>
@@ -239,7 +270,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -279,21 +310,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/airport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/Flight.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
-            <marker date="1449518888060" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1449518888060" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1449518888060" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1449546242912" expanded="true" signature="1134:1277" placeholder="INSERT INTO ..." />
+            <marker date="1449546242912" expanded="true" signature="3695:3740" placeholder="DELETE FROM ..." />
+            <marker date="1449546242912" expanded="true" signature="4037:4099" placeholder="SELECT * FRO..." />
           </folding>
         </state>
       </provider>
@@ -324,9 +348,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
-            <marker date="1449518888060" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1449518888060" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1449518888060" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1449546242912" expanded="true" signature="1134:1277" placeholder="INSERT INTO ..." />
+            <marker date="1449546242912" expanded="true" signature="3695:3740" placeholder="DELETE FROM ..." />
+            <marker date="1449546242912" expanded="true" signature="4037:4099" placeholder="SELECT * FRO..." />
           </folding>
         </state>
       </provider>
@@ -513,13 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/airport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13559322">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/psl-config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22033899">
@@ -538,33 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45762712">
           <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/flightsAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/Flight.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7893545">
-          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding>
-            <marker date="1449518888060" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1449518888060" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1449518888060" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28878823">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="22" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -661,11 +651,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/flights.php">
+    <entry file="file://$PROJECT_DIR$/php/adminUsers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.884615">
-          <caret line="90" column="101" selection-start-line="90" selection-start-column="45" selection-end-line="90" selection-end-column="101" />
-          <folding />
+        <state vertical-scroll-proportion="1.1166478">
+          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#a#1;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -674,6 +666,56 @@
         <state vertical-scroll-proportion="0.7701019">
           <caret line="49" column="112" selection-start-line="49" selection-start-column="112" selection-end-line="49" selection-end-column="112" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/airport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0877192">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/flights.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="61" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Flight.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.269231">
+          <caret line="88" column="29" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
+          <folding>
+            <marker date="1449546242912" expanded="true" signature="1134:1277" placeholder="INSERT INTO ..." />
+            <marker date="1449546242912" expanded="true" signature="3695:3740" placeholder="DELETE FROM ..." />
+            <marker date="1449546242912" expanded="true" signature="4037:4099" placeholder="SELECT * FRO..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/flightsAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7315968">
+          <caret line="131" column="108" selection-start-line="131" selection-start-column="108" selection-end-line="131" selection-end-column="108" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1449546708350" expanded="true" signature="5108:5447" placeholder="..." />
+            <marker date="1449546708350" expanded="true" signature="5108:6446" placeholder="..." />
+            <marker date="1449546708350" expanded="true" signature="5127:5447" placeholder="..." />
+            <marker date="1449546708350" expanded="true" signature="5583:6363" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
