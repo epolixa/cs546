@@ -1,11 +1,11 @@
 <?php
-require_once('connection.php');
+require_once('../includes/connection.php');
 
 class Shop
 {
-    private $db, $id=0, $name="", $security_type="", $location="", $terminal_id=0, $airport_id=0;
+    private $db, $id=0, $name="", $security_type="", $location="", $terminal_id=0, $airport=0;
 
-    public function create($name, $security_type, $location, $terminal_id, $airport_id)
+    public function create($name, $security_type, $location, $terminal_id, $airport)
     {
         //THIS FUNCCTION WILL TAKE IN THE DATA PASSED THROUGH AND CREATE
         // A NEW AIRPORT LISTING IN TO THE DATABASE;
@@ -15,12 +15,12 @@ class Shop
         $security_type = filter_var($security_type, FILTER_SANITIZE_STRING);
         $location = filter_var($location, FILTER_SANITIZE_STRING);
         $terminal_id = filter_var($terminal_id, FILTER_SANITIZE_NUMBER_INT);
-        $airport_id = filter_var($airport_id, FILTER_SANITIZE_NUMBER_INT);
+        $airport = filter_var($airport, FILTER_SANITIZE_NUMBER_INT);
 
         //PREPARE INSERT
-        if(!($stmt = $this->db->prepare_statement("INSERT INTO `shopping`(`name`,`security_type`,`location`, `terminal_id`,`airport_id`) VALUES(?,?,?,?,?)")))
+        if(!($stmt = $this->db->prepare_statement("INSERT INTO `shopping`(`name`,`security_type`,`location`, `terminal_id`,`airport`) VALUES(?,?,?,?,?)")))
             echo "Prepare failed: (" . $this->db->errno . ") " . $this->db->error;
-        if(!($stmt->bind_param("sssss", $name, $security_type, $location, $terminal_id, $airport_id)))
+        if(!($stmt->bind_param("sssss", $name, $security_type, $location, $terminal_id, $airport)))
             echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 
         //INSERT, POPULATE THIS OBJECT AND RETURN THE ID OF
@@ -39,7 +39,7 @@ class Shop
 
     }
 
-    public function edit($name, $security_type, $location, $terminal_id, $airport_id){
+    public function edit($name, $security_type, $location, $terminal_id, $airport){
         //CHECK TO SEE IF THIS INSTANCE EVEN EXISTS
         if($this->id<=0)
             return false;
@@ -49,10 +49,10 @@ class Shop
         $security_type = filter_var($security_type, FILTER_SANITIZE_STRING);
         $location = filter_var($location, FILTER_SANITIZE_STRING);
         $terminal_id = filter_var($terminal_id, FILTER_SANITIZE_NUMBER_INT);
-        $airport_id = filter_var($airport_id, FILTER_SANITIZE_NUMBER_INT);
-        if(!($stmt = $this->db->prepare_statement("UPDATE `shopping` SET `name`=?,`security_type`=?,`location`=?, `terminal_id`=?,`airport_id`=? WHERE `id`=?")))
+        $airport = filter_var($airport, FILTER_SANITIZE_NUMBER_INT);
+        if(!($stmt = $this->db->prepare_statement("UPDATE `shopping` SET `name`=?,`security_type`=?,`location`=?, `terminal_id`=?,`airport`=? WHERE `id`=?")))
             echo "Prepare failed: (" . $this->db->e . ") " . $this->db->error;
-        if(!($stmt->bind_param("sssssi", $name, $security_type, $location, $terminal_id, $airport_id,$this->id)))
+        if(!($stmt->bind_param("sssssi", $name, $security_type, $location, $terminal_id, $airport,$this->id)))
             echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 
         //INSERT, POPULATE THIS OBJECT AND RETURN THE ID OF
@@ -78,7 +78,7 @@ class Shop
 
     private function getShop($id){
         $id = filter_var($id,FILTER_SANITIZE_NUMBER_INT);
-        $stmt = $this->db->send_sql("SELECT * FROM airport_ids WHERE id='$id'");
+        $stmt = $this->db->send_sql("SELECT * FROM `shopping` WHERE `id`='$id'");
         if($stmt->num_rows>0){
             //AIRPORT EXISTS
             //fetch info from the db
@@ -89,7 +89,7 @@ class Shop
             $this->security_type = $info['security_type'];
             $this->location = $info['location'];
             $this->terminal_id = $info['terminal_id'];
-            $this->airport_id = $info['airport_id'];
+            $this->airport = $info['airport'];
 
             $stmt->close();
         }else{
@@ -117,8 +117,8 @@ class Shop
         return $this->terminal_id;
     }
 
-    public function airport_id(){
-        return $this->airport_id;
+    public function airport(){
+        return $this->airport;
     }
 
     public function __construct($id=0){

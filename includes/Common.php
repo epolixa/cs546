@@ -2,6 +2,7 @@
 require_once'../includes/connection.php';
 require_once'../includes/Airport.php';
 require_once'../includes/Flight.php';
+require_once'../includes/Shop.php';
 
 class Common{
     public static function selectAirports(){
@@ -65,7 +66,7 @@ class Common{
         if($stmt->num_rows>0){
             $count = 0;
             while($row = $stmt->fetch_array(MYSQLI_ASSOC)){
-                $ret[$count] = new Flight($row['id']);
+                $ret[$count] = new Shop($row['id']);
                 $count++;
             }
             $stmt->close();

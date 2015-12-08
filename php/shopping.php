@@ -29,25 +29,25 @@
             <h2>Shops of <?php echo $airport->name() ?> International Airport</h2>
               <table>
               <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>security_type</th>
-                <th>location</th>
-                <th>terminal_id</th>
-                <th>airport</th>
+                <th>Name</th>
+                <th>Pre/Post Security</th>
+                <th>Location</th>
+                <th>Terminal</th>
               </tr>
               <?php
                   $shops = Common::selectShops("airport","=",$airport->name());
-                  foreach($shops as $shop) {
-                    echo "<tr>";
-                    echo "<td>".$shops['id']."</td>";
-                    echo "<td>".$shops['name']."</td>";
-                    echo "<td>".$shops['security_type']."</td>";
-                    echo "<td>".$shops['location']."</td>";
-                    echo "<td>".$shops['terminal_id']."</td>";
-                    echo "<td>".$shops['airport']."</td>";
-                    echo "</tr>";
-                  }
+              if($shops && count($shops)>0) {
+                foreach ($shops as $shop) {
+                  echo "<tr>";
+                  echo "<td>" . $shop->name() . "</td>";
+                  echo "<td>" . $shop->security_type() . "</td>";
+                  echo "<td>" . $shop->location() . "</td>";
+                  echo "<td>" . $shop->terminal() . "</td>";
+                  echo "</tr>";
+                }
+              }else{
+                echo"<tr><td colspan='4'><center>There aren't any shops at this time.</center></td></tr> ";
+              }
               ?>
             </table>
           </section>
