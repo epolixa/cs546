@@ -15,7 +15,7 @@
         <div class="header">
           <div class="banner">
             <h1 class="title">Airport Aggregator</h1>
-            <img class="logo" src="../images/airplane-icon.png"/>
+            <img class="logo" src="images/airplane-icon.png"/>
           </div>
           <nav class="nav-main">
             <ul>

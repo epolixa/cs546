@@ -1,0 +1,22 @@
+.review {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.review-editable .review-content {
+  width: 100%;
+  min-height: 100px;
+}
+
+.review-editable .review-update {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.review-editable .review-delete {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}

@@ -20,15 +20,13 @@
       <div class="content-wrap">
         <div class="content">
           <?php if (login_check($mysqli) == true) : ?>
-              <p>Welcome <span style="color: #5B9DDE; font-weight: bold;"><?php echo htmlentities($_SESSION['username']); ?></span>!</p>
+              <p>Welcome <span style="color: #5B9DDE; font-weight: bold;"><?php echo htmlentities($_SESSION['username']); ?></span>!</p><br>
               <p class="notice">
                   This is an example protected page.  To access this page, users
                   must be logged in.  At some stage, we'll also check the role of
                   the user, so pages will be able to determine the type of user
                   authorized to access the page.
-              </p>
-              <p>Return to <a href="../home.php">main page.</a></p>
-
+              </p><br>
 
               <article> <?php
 
@@ -42,13 +40,12 @@
 
                  if(isset($_SESSION["role"]))
                   if($_SESSION["role"] == 0){
-                       echo '<p> You can <a href="title_content_uploader.php">create your own reviews</a> about any characteristic of the airports.</p>';
-                       echo '<p> You can also update your own reviews.<br></p>';
+                       echo '<p><a href="title_content_uploader.php"><span style="font-weight:bold">Submit a new Review</span></a></p><br>';
+                       echo '<p>Review History:</p><br>';
                   }
 
                  if(isset($_SESSION["role"]))
                   if($_SESSION["role"] == 1) {
-                    echo "<br />";
                     echo "<p>You are logged as administrator.</p>";
                     echo "<p>To access reviews management click <a href= 'reviewsAdmin.php'> here.</a></p>";
                     echo "<p>To access users management click <a href= 'adminUsers.php'> here.</a></p>";
@@ -61,7 +58,7 @@
                       if ($entry["id"] == $blog["userID"]){
 
                        if ($temp){
-                        echo 'The following are your reviews:<br><br>';
+                        //echo 'The following are your reviews:<br><br>';
                         $temp = false;
                        }
 
@@ -80,22 +77,26 @@
                         if ($blog["AirportID"] == 5)
                           $airportName = "Honolulu International Airport";
 
-                        echo "By: You <br>";
-                        echo "Date: " . date("m-d-Y", strtotime($blog["Date"])) . "<br>";
+                        echo '<div class="review review-editable">';
+                        echo 'Author: ' . $username . ' <br>';
+                        echo 'Date: ' . date("m-d-Y", strtotime($blog["Date"])) . '<br><br>';
                         echo '<form id = "title_content_upload" action = "update_delete_status.php" method = "POST" ">';
                         echo '<input type = "hidden" name = review_id  id = "basic_review_query" value = "'.$blog["ID"].'"  style = "width: 350px" /> ';
                         echo '<input type = "hidden" name = "status"  id = "basic_status_query" value = 1  style = "width: 350px" /> ';
-                        echo 'Title:<input type = "text" name = "title" placeholder = "Type title here..." id = "basic_title_query"  value = "'.$blog["Title"].'" /> <br>';
-                        echo 'Content:<input type = "text" name = "content" placeholder = "Type content here..." id = "basic_content_query" value = "'.$blog["Content"].'"  style = "column-width: 350px" style = "height = 60%"/> <br>';
-                        echo 'Airport:<select required name = "airport_id">';
+
+                        echo 'Airport: <select required name = "airport_id">';
                         echo '<option selected = "selected">'.$airportName.'</option>';
                         echo '<option value = 1> JFK International Airport </option>';
                         echo '<option value = 2> San Francisco International Airport </option>';
                         echo '<option value = 3> Houston George Bush Intercontinental Airport </option>';
                         echo '<option value = 4> Miami International Airport </option>';
                         echo '<option value = 5> Honolulu International Airport </option>';
-                        echo '</select><br>';
-                        echo 'Rank:<select required name = "rank">';
+                        echo '</select><br><br>';
+
+                        echo 'Title: <input type = "text" name = "title" placeholder = "Type title here..." id = "basic_title_query"  value = "'.$blog["Title"].'" /> <br>';
+                        echo 'Content: <textarea class="review-content" name="content" id="basic_content_query">' . $blog["Content"] . '</textarea><br><br>';
+
+                        echo 'Rank: <select required name = "rank">';
                         echo '<option selected = "selected">'.$blog["Rank"].'</option>';
                         echo '<option value = 1> 1 </option>';
                         echo '<option value = 2> 2 </option>';
@@ -108,14 +109,15 @@
                         echo '<option value = 9> 9 </option>';
                         echo '<option value = 10> 10 </option>';
                         echo '</select><br>';
-                        echo '<input type="submit" value="Update" onclick = "return updateConfirmation();">';
-                        echo '</form>' ;
+                        echo '<input class="review-update" type="submit" value="Update Review" onclick = "return updateConfirmation();">';
+                        echo '</form>';
 
-                        echo '<form id = "delete" action = "update_delete_status.php" method = "POST" onsubmit = "return deleteConfirmation()">';
+                        echo '<form id = "delete" class="review-delete" action = "update_delete_status.php" method = "POST" onsubmit = "return deleteConfirmation()">';
                         echo '<input type = "hidden" name = "status"  id = "basic_status_query" value = 2  style = "width: 350px" /> ';
                         echo '<input type = "hidden" name = "review_id"  id = "basic_review_query" value = "'.$blog["ID"].'"  style = "width: 350px" /> ';
-                        echo '<input type="submit" value="Delete">';
-                        echo '</form><br><br>';
+                        echo '<input type="submit" value="Delete Review">';
+                        echo '</form>';
+                        echo '</div><br>';
                      }
                     }
 
